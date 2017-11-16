@@ -1,0 +1,24 @@
+{
+  "name": "ufo",
+  "version": "1.0.0",
+  "description": "UFO Data Set",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessicalin58/UFO.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jessicalin58/UFO/issues"
+  },
+  "homepage": "https://github.com/jessicalin58/UFO#readme",
+  "dependencies": {
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.0",
+    "sequelize": "^4.22.7"
+  }
+}
