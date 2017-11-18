@@ -12,7 +12,8 @@
 // VARIABLES
 // ==========================================
 
-let upvote = require('upvote');
+// Require upvote npm package
+// var upvote = require('upvote');
 
 // Will store form input values for testing
 let sightingArray = [];
@@ -58,10 +59,9 @@ function renderSightings() {
     var star = $('<a>').addClass('star');
     p.append(star);
 
-    // Add data-attributes for upvote
-    // a.attr('data-id', sightingArray[i]);
-    // $('.sighting').each(function() { 
-    //   $(this).data('id', dataId);
+    // Trying to add incremental data-id to each new entry
+    // $(this).each('.sighting', function () {
+    //   $('<p>').data('id', dataId);
     //   dataId++;
     // });
 
@@ -77,6 +77,7 @@ $(function () {
   
   // Click function for 'add-sighting' submit button
   $('#add-sighting').on('click', function (event) {
+
     // console.log('add-sighting clicked');
     event.preventDefault();
 
@@ -92,14 +93,8 @@ $(function () {
 
     // Empties textbox input
     $('#new-sighting').val('');
-
   });
 
-  $('#topic').upvote();
-  // Trying to add incremental data-id to each new entry
-  // $(this).each('.sighting', function () {
-  //   $('<p>').data('id', dataId);
-  //   dataId++;
-  // });
-
+  // $('#topic').upvote();
+  
 });
