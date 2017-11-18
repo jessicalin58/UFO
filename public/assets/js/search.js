@@ -4,13 +4,20 @@
 /* Todo:
   [] input posts to page with button
   [] button changes data-state up/down
+
+  Questions:
+  [] each new sighting report needs 'comments', 'date', what else?
 */
 
 // VARIABLES
 // ==========================================
 
+let upvote = require('upvote');
+
 // Will store form input values for testing
 let sightingArray = [];
+// Set incremental data-id for each new entry
+let dataId = 0;
 
 
 // FUNCTIONS
@@ -28,20 +35,37 @@ function renderSightings() {
     console.log(sightingArray[i]);
 
     // Dynamically generate p-tag for each entry in array
-    var a = $('<p>').text(sightingArray[i]);
+    var p = $('<p>').text(sightingArray[i]);
 
-    // Add Materialize button class
-    // a.addClass('waves-effect waves-light btn #8c9eff indigo accent-1');
+    // Add class and id to each text entry
+    p.addClass('sighting upvote');
+    p.attr('id', 'topic');
 
-    // Add a class to each entry
-    a.addClass('sighting');
+    // **per upvote docs, need to add a-tags and span-class for count for each entry
+    // Add upvote a-tag
+    var upvote = $('<a>').addClass('upvote');
+    p.append(upvote);
 
-    // Add data-attribute with value of the topics at index 'i'
-    // a.attr('data-name', topics[i]);
-    // Provide text for button based on string value of topics array at index 'i'
-    // a.text(topics[i]);
-    
-    $('#sightings').append(a);
+    // Add count span
+    var count = $('<span>').addClass('count');
+    p.append(count);
+
+    // Add downvote a-tag
+    var downvote = $('<a>').addClass('downvote');
+    p.append(downvote);
+
+    // Add star a-tag
+    var star = $('<a>').addClass('star');
+    p.append(star);
+
+    // Add data-attributes for upvote
+    // a.attr('data-id', sightingArray[i]);
+    // $('.sighting').each(function() { 
+    //   $(this).data('id', dataId);
+    //   dataId++;
+    // });
+
+    $('#sightings').append(p);
   };
 }
 
@@ -68,6 +92,14 @@ $(function () {
 
     // Empties textbox input
     $('#new-sighting').val('');
+
   });
+
+  $('#topic').upvote();
+  // Trying to add incremental data-id to each new entry
+  // $(this).each('.sighting', function () {
+  //   $('<p>').data('id', dataId);
+  //   dataId++;
+  // });
 
 });
