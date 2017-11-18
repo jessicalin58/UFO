@@ -33,10 +33,10 @@ function renderSightings() {
   for (var i = 0; i < sightingArray.length; i++) {
 
     // TEST: inputs log  ~WORKS
-    console.log(sightingArray[i]);
+    console.log(sightingArray[i].comments + ', ' + sightingArray[i].datetime);
 
     // Dynamically generate p-tag for each entry in array
-    var p = $('<p>').text(sightingArray[i]);
+    var p = $('<p>').text(sightingArray[i].comments + ' ' + sightingArray[i].datetime);
 
     // Add class and id to each text entry
     p.addClass('sighting upvote');
@@ -83,10 +83,16 @@ $(function () {
 
     // Need to render each element onto page
     // Will be part of POST call later
-    let newSighting = $('#new-sighting').val().trim();
+    // let newSighting = $('#new-sighting').val().trim();
+
+    let newSighting = {
+      comments: $('#new-sighting').val().trim(),
+      datetime: moment(Date.now()).format('YYYY/MM/DD hh:mm a')
+    }
 
     // Adds user input to empty array
     sightingArray.push(newSighting);
+    console.log(sightingArray);
 
     // Calls function to render each entry on page
     renderSightings();
