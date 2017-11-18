@@ -12,13 +12,14 @@
 // VARIABLES
 // ==========================================
 
-// Require upvote npm package
-// var upvote = require('upvote');
-
 // Will store form input values for testing
 let sightingArray = [];
 // Set incremental data-id for each new entry
 let dataId = 0;
+
+let upcount = 0;
+let downcount = 0;
+let count = 0;
 
 
 // FUNCTIONS
@@ -44,8 +45,16 @@ function renderSightings() {
 
     // **per upvote docs, need to add a-tags and span-class for count for each entry
     // Add upvote a-tag
-    var upvote = $('<a>').addClass('upvote');
-    p.append(upvote);
+    // var upvote = $('<a>').addClass('upvote');
+    // p.append(upvote);
+
+    // Change upvote a-tags to buttons for now***************
+    var upvoteBtn = $('<button>').addClass('upvote waves-effect waves-light btn indigo accent-1');
+    // Needs click function to incress upcount...
+    upvoteBtn.attr('data-upcount');
+    upvoteBtn.text('Vote up');
+    p.append(upvoteBtn);
+
 
     // Add count span
     var count = $('<span>').addClass('count');
@@ -102,5 +111,13 @@ $(function () {
   });
 
   // $('#topic').upvote();
-  
+
+  $(this).on('click', 'button.upvote', function () {
+    console.log(this);
+    console.log('upvote clicked');
+    // let upcount = 0;
+    // ++upcount;
+    console.log(++upcount);
+  });
+   
 });
