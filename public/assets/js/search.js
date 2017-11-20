@@ -48,19 +48,29 @@ function renderSightings() {
     var upvoteBtn = $('<button>').addClass('upvote waves-effect waves-light btn indigo accent-1');
     // Needs click function to incress upcount...
     upvoteBtn.attr('data-upcount');
-    upvoteBtn.text('Vote up');
+    // upvoteBtn.text('Vote up');
+    // Add icon to upvote button
+    var upIcon = $('<i>').text('add_circle');
+    upIcon.addClass('material-icons');
+    upvoteBtn.append(upIcon);
+    // Add upvote button to each entry
     p.append(upvoteBtn);
 
     var counter = $('<input disabled value=0>').val(0);
-    counter.attr('id', 'disabled')
+    counter.addClass('center-align');
+    counter.attr('id', 'disabled');
     p.append(counter);
 
     var downvoteBtn = $('<button>').addClass('downvote waves-effect waves-light btn indigo accent-1');
     // Needs click function to incress upcount...
     downvoteBtn.attr('data-downcount');
-    downvoteBtn.text('Vote down');
+    // downvoteBtn.text('Vote down');
+    // Add icon to downvote button
+    var downIcon = $('<i>').text('remove_circle');
+    downIcon.addClass('material-icons');
+    downvoteBtn.append(downIcon);
+    // Add downvote button to each entry
     p.append(downvoteBtn);
-
 
     // **per upvote docs, add a-tags and span-class for count for each entry
     // Add upvote a-tag
@@ -142,9 +152,13 @@ $(function () {
   $(this).on('click', 'button.downvote', function () {
     // console.log(this);
     console.log('downvote clicked');
-    // let downcount = 0;
-    ++downcount;
-    console.log(downcount);
+
+    // Grabs value of counter for each entry
+    var $counterVal = $('#disabled');
+    var downcount = $counterVal.val();
+    // Decreases counter value by one
+    downcount--;
+    $counterVal.val(downcount);
   });
 
   // How to keep running count of up/down votes?
