@@ -99,6 +99,26 @@ function renderSightings() {
   };
 }
 
+// Determines which entry is being upvoted; increases upvote +1
+function handleUpvote() {
+  var currentPost = $(this)
+    .parent()
+    // .parent()
+    // .data('topic');
+
+  console.log('upvote clicked');
+  console.log(currentPost);
+
+  // This may all work better if these entries were tied to a db!!! So do that next!!
+  // Grabs value of counter for each entry*****
+  var $counterVal = $('#disabled');  //How to select 'this'#disabled
+  var upcount = $counterVal.val();
+  // Increases counter value by one
+  upcount++;
+  // Updates counter value on page
+  $counterVal.val(upcount);
+}
+
 
 // MAIN PROCESS
 // ==========================================
@@ -135,18 +155,19 @@ $(function () {
   // $('#topic').upvote();
 
   // Increase value of 'upcount' on click
-  $(this).on('click', 'button.upvote', function () {
+  $(this).on('click', 'button.upvote', handleUpvote);
+  // $(this).on('click', 'button.upvote', function () {
     // console.log(this);
-    console.log('upvote clicked');
+    // console.log('upvote clicked');
     
     // Grabs value of counter for each entry
-    var $counterVal = $('#disabled');
-    var upcount = $counterVal.val();
+    // var $counterVal = $('#disabled');
+    // var upcount = $counterVal.val();
     // Increases counter value by one
-    upcount++;
+    // upcount++;
     // Updates counter value on page
-    $counterVal.val(upcount);
-  });
+    // $counterVal.val(upcount);
+  // });
 
   // Increase value of 'downcount' on click
   $(this).on('click', 'button.downvote', function () {
