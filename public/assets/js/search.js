@@ -50,7 +50,7 @@ function renderSightings() {
     upvoteBtn.attr('data-upcount');
     // upvoteBtn.text('Vote up');
     // Add icon to upvote button
-    var upIcon = $('<i>').text('add_circle');
+    var upIcon = $('<i>').text('add');
     upIcon.addClass('material-icons');
     upvoteBtn.append(upIcon);
     // Add upvote button to each entry
@@ -66,7 +66,7 @@ function renderSightings() {
     downvoteBtn.attr('data-downcount');
     // downvoteBtn.text('Vote down');
     // Add icon to downvote button
-    var downIcon = $('<i>').text('remove_circle');
+    var downIcon = $('<i>').text('remove');
     downIcon.addClass('material-icons');
     downvoteBtn.append(downIcon);
     // Add downvote button to each entry
