@@ -51,6 +51,10 @@ function renderSightings() {
     upvoteBtn.text('Vote up');
     p.append(upvoteBtn);
 
+    var counter = $('<input disabled value=0>').val(0);
+    counter.attr('id', 'disabled')
+    p.append(counter);
+
     var downvoteBtn = $('<button>').addClass('downvote waves-effect waves-light btn indigo accent-1');
     // Needs click function to incress upcount...
     downvoteBtn.attr('data-downcount');
@@ -122,16 +126,21 @@ $(function () {
 
   // Increase value of 'upcount' on click
   $(this).on('click', 'button.upvote', function () {
-    console.log(this);
+    // console.log(this);
     console.log('upvote clicked');
-    // let upcount = 0;
-    ++upcount;
-    console.log(upcount);
+    
+    // Grabs value of counter for each entry
+    var $counterVal = $('#disabled');
+    var upcount = $counterVal.val();
+    // Increases counter value by one
+    upcount++;
+    // Updates counter value on page
+    $counterVal.val(upcount);
   });
 
   // Increase value of 'downcount' on click
   $(this).on('click', 'button.downvote', function () {
-    console.log(this);
+    // console.log(this);
     console.log('downvote clicked');
     // let downcount = 0;
     ++downcount;
