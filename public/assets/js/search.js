@@ -101,17 +101,15 @@ function renderSightings() {
 
 // Determines which entry is being upvoted; increases upvote +1
 function handleUpvote() {
-  var currentPost = $(this)
-    .parent()
-    // .parent()
-    // .data('topic');
-
   console.log('upvote clicked');
-  console.log(currentPost);
+  
+  var currentPost = $(this).parent()
+  // console.log(currentPost);
 
-  // This may all work better if these entries were tied to a db!!! So do that next!!
-  // Grabs value of counter for each entry*****
-  var $counterVal = $('#disabled');  //How to select 'this'#disabled
+  // Grabs value of counter for each entry*****  ~WORKS!!!!!!!!
+  // var $counterVal = $('#disabled');  //How to select 'this'#disabled
+  var $counterVal = currentPost.children('#disabled');
+  // console.log($counterVal);
   var upcount = $counterVal.val();
   // Increases counter value by one
   upcount++;
