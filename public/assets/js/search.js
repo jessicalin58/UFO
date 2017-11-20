@@ -19,7 +19,7 @@ let dataId = 0;
 
 let upcount = 0;
 let downcount = 0;
-let count = 0;
+let totalCount = 0;
 
 
 // FUNCTIONS
@@ -43,11 +43,7 @@ function renderSightings() {
     p.addClass('sighting upvote');
     p.attr('id', 'topic');
 
-    // **per upvote docs, need to add a-tags and span-class for count for each entry
-    // Add upvote a-tag
-    // var upvote = $('<a>').addClass('upvote');
-    // p.append(upvote);
-
+    // Buttons that aren't part of upvote package structure
     // Change upvote a-tags to buttons for now***************
     var upvoteBtn = $('<button>').addClass('upvote waves-effect waves-light btn indigo accent-1');
     // Needs click function to incress upcount...
@@ -55,18 +51,29 @@ function renderSightings() {
     upvoteBtn.text('Vote up');
     p.append(upvoteBtn);
 
+    var downvoteBtn = $('<button>').addClass('downvote waves-effect waves-light btn indigo accent-1');
+    // Needs click function to incress upcount...
+    downvoteBtn.attr('data-downcount');
+    downvoteBtn.text('Vote down');
+    p.append(downvoteBtn);
+
+
+    // **per upvote docs, add a-tags and span-class for count for each entry
+    // Add upvote a-tag
+    // var upvote = $('<a>').addClass('upvote');
+    // p.append(upvote);
 
     // Add count span
-    var count = $('<span>').addClass('count');
-    p.append(count);
+    // var count = $('<span>').addClass('count');
+    // p.append(count);
 
     // Add downvote a-tag
-    var downvote = $('<a>').addClass('downvote');
-    p.append(downvote);
+    // var downvote = $('<a>').addClass('downvote');
+    // p.append(downvote);
 
     // Add star a-tag
-    var star = $('<a>').addClass('star');
-    p.append(star);
+    // var star = $('<a>').addClass('star');
+    // p.append(star);
 
     // Trying to add incremental data-id to each new entry
     // $(this).each('.sighting', function () {
@@ -110,14 +117,27 @@ $(function () {
     $('#new-sighting').val('');
   });
 
+  // Requirement for upvote package
   // $('#topic').upvote();
 
+  // Increase value of 'upcount' on click
   $(this).on('click', 'button.upvote', function () {
     console.log(this);
     console.log('upvote clicked');
     // let upcount = 0;
-    // ++upcount;
-    console.log(++upcount);
+    ++upcount;
+    console.log(upcount);
   });
-   
+
+  // Increase value of 'downcount' on click
+  $(this).on('click', 'button.downvote', function () {
+    console.log(this);
+    console.log('downvote clicked');
+    // let downcount = 0;
+    ++downcount;
+    console.log(downcount);
+  });
+
+  // How to keep running count of up/down votes?
+  // totalCount
 });
