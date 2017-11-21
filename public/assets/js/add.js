@@ -139,6 +139,10 @@ function handleDownvote() {
 // ==========================================
 
 $(function () {
+
+  $('.chips').material_chip();
+  var chipValue = $('.chip').text();
+  console.log(chipValue);
   
   // Click function for 'add-sighting' submit button
   $('#add-sighting').on('click', function (event) {
