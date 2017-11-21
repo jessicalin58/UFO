@@ -33,6 +33,16 @@ module.exports = function (app) {
 
     });
 
+
+    // GET all user-submitted entries
+    app.get("/api/all", function (req, res) {
+
+        db.UserEntry.findAll({}).then(function (results) {
+            // results are available to us inside the .then
+            res.json(results);
+        });
+    });
+
     // POST route for saving a new ufo sighting entry
     app.post("/api/new", function (req, res) {
         console.log("New sighting data: ");
