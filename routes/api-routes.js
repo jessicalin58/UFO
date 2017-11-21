@@ -14,9 +14,14 @@ var db = require("../models");
 module.exports = function (app) {
 
     // GET route for getting all of the ufo's
-    app.get("/api/ufo", function (req, res) {
+    app.get("/api/planet", function (req, res) {
 
+        db.UFO.findAll({})
+            .then(function (dbPost) {
+                res.json(dbPost);
+            });
     });
+
 
     // POST route for saving a ufo click. You can create a todo using the data on req.body
     app.post("/api/ufo", function (req, res) {
