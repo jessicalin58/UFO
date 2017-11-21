@@ -23,7 +23,9 @@ let upcount = 0;
 let downcount = 0;
 
 // Will keep track of number of times each entry has been up/down voted
-// let totalCount = 0;
+let totalCount = 0;
+
+var voteCounter;
 
 
 // FUNCTIONS
@@ -117,8 +119,11 @@ function handleUpvote() {
 
     // NEXT TO FIGURE OUT
   // Increase overall count by 1
-  // totalCount++;
+  totalCount++;
+  var thisVoteCounter = currentPost.children('#total-count');
+  thisVoteCounter.text(parseInt(totalCount));
   // console.log(totalCount);
+  // ^^^ Updates total for ALL of the counters, not each individual one
 }
 
 // Determines which entry is being downvoted; decreases rating -1
@@ -132,6 +137,10 @@ function handleDownvote() {
   // Decreases counter value by one
   downcount--;
   $counterVal.val(downcount);
+
+  // NEXT TO FIGURE OUT
+  // Increase overall count by 1
+  totalCount++;
 }
 
 
@@ -141,8 +150,8 @@ function handleDownvote() {
 $(function () {
 
   $('.chips').material_chip();
-  var chipValue = $('.chip').text();
-  console.log(chipValue);
+  // var chipValue = $('.chip').text();
+  // console.log(chipValue);
   
   // Click function for 'add-sighting' submit button
   $('#add-sighting').on('click', function (event) {
@@ -237,7 +246,15 @@ $(function () {
         row.append(downvoteBtn);
         // ################################################
 
+        // Add total vote counter
+        voteCounter = $('<div>');
+        voteCounter.addClass('chip');
+        voteCounter.attr('id', 'total-count');
+        voteCounter.text(parseInt(totalCount));
+                    
+        row.append(voteCounter);
 
+        // Append all elements to each entry
         $("#sightings").prepend(row);
       }
     }
