@@ -99,10 +99,10 @@ function renderSightings() {
   };
 }
 
-// Determines which entry is being upvoted; increases upvote +1
+// Determines which entry is being upvoted; increases rating +1
 function handleUpvote() {
   console.log('upvote clicked');
-  
+
   var currentPost = $(this).parent()
   // console.log(currentPost);
 
@@ -115,6 +115,24 @@ function handleUpvote() {
   upcount++;
   // Updates counter value on page
   $counterVal.val(upcount);
+
+    // NEXT TO FIGURE OUT
+  // Increase overall count by 1
+  // totalCount++;
+  // console.log(totalCount);
+}
+
+// Determines which entry is being downvoted; decreases rating -1
+function handleDownvote() {
+  console.log('downvote clicked');
+
+  var currentPost = $(this).parent()
+  // Grabs value of counter for each entry
+  var $counterVal = currentPost.children('#disabled');
+  var downcount = $counterVal.val();
+  // Decreases counter value by one
+  downcount--;
+  $counterVal.val(downcount);
 }
 
 
@@ -168,17 +186,18 @@ $(function () {
   // });
 
   // Increase value of 'downcount' on click
-  $(this).on('click', 'button.downvote', function () {
+  $(this).on('click', 'button.downvote', handleDownvote);
+  // $(this).on('click', 'button.downvote', function () {
     // console.log(this);
-    console.log('downvote clicked');
+    // console.log('downvote clicked');
 
-    // Grabs value of counter for each entry
-    var $counterVal = $('#disabled');
-    var downcount = $counterVal.val();
-    // Decreases counter value by one
-    downcount--;
-    $counterVal.val(downcount);
-  });
+    // // Grabs value of counter for each entry
+    // var $counterVal = $('#disabled');
+    // var downcount = $counterVal.val();
+    // // Decreases counter value by one
+    // downcount--;
+    // $counterVal.val(downcount);
+  // });
 
   // How to keep running count of up/down votes?
   // totalCount
