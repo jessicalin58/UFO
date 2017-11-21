@@ -152,9 +152,10 @@ $(function () {
 
     let newSighting = {
       comments: $('#new-sighting').val().trim(),
-      datetime: moment(Date.now()).format('YYYY/MM/DD hh:mm a')
-      // vote: (DON'T FORGET TO ADD A COMMA TO ONE ABOVE),
+      datetime: moment(Date.now()).format('YYYY/MM/DD hh:mm a'),
+      // vote: 
       // count: 
+      created_at: moment().format("YYYY-MM-DD HH:mm:ss")
     }
 
     // Adds user input to empty array
