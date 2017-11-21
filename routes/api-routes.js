@@ -20,16 +20,7 @@ module.exports = function (app) {
 
     // POST route for saving a ufo click. You can create a todo using the data on req.body
     app.post("/api/ufo", function (req, res) {
-        console.log("New sighting data: ");
-        console.log(req.body);
-
-        UserEntry.create({
-            comments: req.body.comments,
-            datetime: req.body.datetime,
-            created_at: req.body.created_at
-        }).then(function(results) {
-            res.end();
-        });
+        
     });
 
     // DELETE route for deleting ufo. You can access the todo's id in req.params.id
@@ -40,5 +31,19 @@ module.exports = function (app) {
     // PUT route for updating ufo. The updated todo will be available in req.body
     app.put("/api/ufo", function (req, res) {
 
+    });
+
+    // POST route for saving a new ufo sighting entry
+    app.post("/api/new", function (req, res) {
+        console.log("New sighting data: ");
+        console.log(req.body);
+
+        db.UserEntry.create({
+            comments: req.body.comments,
+            datetime: req.body.datetime,
+            created_at: req.body.created_at
+        }).then(function (results) {
+            res.end();
+        });
     });
 };

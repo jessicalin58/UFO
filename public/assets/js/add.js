@@ -158,12 +158,21 @@ $(function () {
       created_at: moment().format("YYYY-MM-DD HH:mm:ss")
     }
 
+    console.log(newSighting);
+
+    // Send an AJAX POST-request with jQuery
+    $.post('/api/new', newSighting)
+      .done(renderSightings());
+
+
+
+    // OLD WAY ~ BEFORE POSTING TO DB
     // Adds user input to empty array
-    sightingArray.push(newSighting);
-    console.log(sightingArray);
+    // sightingArray.push(newSighting);
+    // console.log(sightingArray);
 
     // Calls function to render each entry on page
-    renderSightings();
+    // renderSightings();
 
     // Empties textbox input
     $('#new-sighting').val('');
