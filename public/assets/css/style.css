@@ -11,18 +11,17 @@
     margin-left: -100px;
 }
 body {
-	width: 100wh;
-	height: 90vh;
+
 	color: #fff;
 	background: linear-gradient(-45deg, rgb(104, 104, 104), rgb(9, 46, 40), rgb(15, 47, 58), rgb(90, 90, 90));
 	background-size: 400% 400%;
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
   animation: Gradient 15s ease infinite;
- 
-
   margin:0;
   overflow:hidden;
+
+  width:60%;
 
 }
 
@@ -72,7 +71,12 @@ h6 {
 	right: 0;
 	left: 0;
 }
-
+span{
+    color: lime; 
+  font-family: "Courier";
+  font-size: 12px;
+  
+}
 
 /* body{
   background: #000;
@@ -82,10 +86,10 @@ p{
   color: lime; 
   font-family: "Courier";
   font-size: 12px;
-  margin: 10px 0 0 10px;
-  white-space: nowrap;
+ 
+  /* white-space: nowrap; */
   overflow: hidden;
-  width: 30em;
+  width: 60em;
   animation: type 4s steps(60, end); 
 }
 
@@ -201,3 +205,46 @@ body #container #content #description a:hover {
   line-height: 11px;
   font-weight: 500;
 }
+
+
+
+/* modal */
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #181818;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+

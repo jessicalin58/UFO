@@ -16,7 +16,16 @@ module.exports = function (app) {
     // GET route for getting all of the ufo's
     app.get("/api/planet", function (req, res) {
 
-        db.UFO.findAll({})
+        // db.UFO.findAll({})
+        //     .then(function (dbPost) {
+        //         res.json(dbPost);
+        //     });
+
+        db.UFO.findAll({
+            where: {
+                id: 2
+            }
+        })
             .then(function (dbPost) {
                 res.json(dbPost);
             });
