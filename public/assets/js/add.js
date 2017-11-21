@@ -3,11 +3,8 @@
 
 /* Todo:
   [x] input posts to page with button
-  [] store new entries in db
+  [x] store new entries in db
   [] store total "ranking" (number of times each entry has been voted on)
-
-  Questions:
-  [] each new sighting report needs 'comments', 'date', what else?
 */
 
 // VARIABLES
@@ -201,10 +198,8 @@ $(function () {
   $(this).on('click', 'button.downvote', handleDownvote);
 
 
-  // How to keep running count of up/down votes?
-  // totalCount
-
-
+  // ROUTING
+  // ==========================================
   // When the page loads, grab all of our chirps
   $.get("/api/all", function (data) {
 
@@ -222,36 +217,35 @@ $(function () {
         // ################################################
         // Buttons for up/down voting  (aren't part of upvote package structure)
         var upvoteBtn = $('<button>').addClass('upvote waves-effect waves-light btn indigo accent-1');
-        upvoteBtn.attr('data-upcount');
-        // Add icon to upvote button
-        var upIcon = $('<i>').text('add');
-        upIcon.addClass('material-icons');
-        upvoteBtn.append(upIcon);
+          upvoteBtn.attr('data-upcount');
+          // Add icon to upvote button
+          var upIcon = $('<i>').text('add');
+          upIcon.addClass('material-icons');
+          upvoteBtn.append(upIcon);
         // Add upvote button to each entry
         row.append(upvoteBtn);
 
         // Creates disabled input to act as vote-counter for each entry
         var counter = $('<input disabled value=0>').val(0);
-        counter.addClass('center-align');
-        counter.attr('id', 'disabled');
+          counter.addClass('center-align');
+          counter.attr('id', 'disabled');
         row.append(counter);
 
         var downvoteBtn = $('<button>').addClass('downvote waves-effect waves-light btn indigo accent-1');
-        downvoteBtn.attr('data-downcount');
-        // Add icon to downvote button
-        var downIcon = $('<i>').text('remove');
-        downIcon.addClass('material-icons');
-        downvoteBtn.append(downIcon);
+          downvoteBtn.attr('data-downcount');
+          // Add icon to downvote button
+          var downIcon = $('<i>').text('remove');
+          downIcon.addClass('material-icons');
+          downvoteBtn.append(downIcon);
         // Add downvote button to each entry
         row.append(downvoteBtn);
         // ################################################
 
         // Add total vote counter
         voteCounter = $('<div>');
-        voteCounter.addClass('chip');
-        voteCounter.attr('id', 'total-count');
-        voteCounter.text(parseInt(totalCount));
-                    
+          voteCounter.addClass('chip');
+          voteCounter.attr('id', 'total-count');
+          voteCounter.text(parseInt(totalCount));            
         row.append(voteCounter);
 
         // Append all elements to each entry
