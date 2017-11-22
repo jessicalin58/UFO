@@ -101,7 +101,7 @@
 
 
             var geometry = new THREE.IcosahedronGeometry(3, 1);
-            var geometry2 = new THREE.IcosahedronGeometry(2.5, 1);
+            var geometry2 = new THREE.OctahedronGeometry(3);
             var geometry4 = new THREE.IcosahedronGeometry(3, 1);
             // material
             var material = new THREE.MeshPhongMaterial({
@@ -239,9 +239,9 @@
                                     ease: Quad.easeInOut,
                                 });
 
-                                info.innerHTML = " <span>Old Man</span> Larry,";
+                                info.innerHTML = " <span>Old Man Larry,</span>";
 
-                                description.innerHTML = "<div>It was a bright light, hitting my car and everything in between ...<div>";
+                                description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
                             }
                             if (planetViewed == 2 || planetViewed == 3 || planetViewed == 4) {
             planetViewed = 1;
@@ -265,19 +265,19 @@
                                     ease: Quad.easeInOut,
                                 });
 
-                                info.innerHTML = " <span>Sunny</span> Icosahedron,";
+                                info.innerHTML = " <span>Danny</span>";
 
-                                description.innerHTML = "Alive for <span>204895</span> years<br /><br /><div>Click on the other planets to learn more ...<div>";
+                                description.innerHTML = "<p>Quicker than a bolt!!</p>";
                             }
                         }
                         if (currentcolor == 0x26D7E7) {
                             if (planetViewed == 1 || planetViewed == 3 || planetViewed == 4) {
                 planetViewed = 2;
-            info.innerHTML = " <span id='couleur'>Blue</span> Icosahedron,";
+            info.innerHTML = "<p>Lisa Simpsons</p>";
 
-                                document.getElementById('couleur').style.color = "#26d7e7";
+                                // document.getElementById('couleur').style.color = "#26d7e7";
 
-                                description.innerHTML = "<br /><br /><div>Click on the other planets to learn more ...<div>";
+                                description.innerHTML = "<p> I mean it was right in my face, but also not...";
 
                                 TweenMax.from($('#content'), 0.5, {
                     css: {
@@ -304,11 +304,11 @@
                         if (currentcolor == 0xffc12d) {
                             if (planetViewed == 1 || planetViewed == 2 || planetViewed == 4) {
                     planetViewed = 3;
-                info.innerHTML = '<span id="couleur">Yellow</span> Icosahedron';
+                info.innerHTML = '<p>Yoda</p>';
 
 
-                                description.innerHTML = "<br /><br /><div>Click on the other planets to learn more ...<div>";
-                                document.getElementById('couleur').style.color = "#ffc12d";
+                                description.innerHTML = "<p>Bright in the sun it was. Hah!</p>";
+                                // document.getElementById('couleur').style.color = "#ffc12d";
 
                                 TweenMax.from($('#content'), 0.5, {
                         css: {
@@ -335,10 +335,10 @@
                         if (currentcolor == 0xacacac) {
                             if (planetViewed == 1 || planetViewed == 2 || planetViewed == 3) {
                         planetViewed = 4;
-                    info.innerHTML = '<span id="couleur">Grey</span> Icosahedron';
-                                document.getElementById('couleur').style.color = "#acacac";
+                    info.innerHTML = '<p>Duck</p>';
+                                // document.getElementById('couleur').style.color = "#acacac";
 
-                                description.innerHTML = "<br /><br /><div>Click on the other planets to learn more ...<div>";
+                                description.innerHTML = "<p>quack quack...QUACK QUAKC QUACKA927EHD</p>";
 
                                 TweenMax.from($('#content'), 0.5, {
                             css: {
