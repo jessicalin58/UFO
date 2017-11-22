@@ -116,9 +116,9 @@ function handleUpvote() {
 
     // NEXT TO FIGURE OUT
   // Increase overall count by 1
-  totalCount++;
-  var thisVoteCounter = currentPost.children('#total-count');
-  thisVoteCounter.text(parseInt(totalCount));
+  // totalCount++;
+  // var thisVoteCounter = currentPost.children('#total-count');
+  // thisVoteCounter.text(parseInt(totalCount));
   // console.log(totalCount);
   // ^^^ Updates total for ALL of the counters, not each individual one
 }
@@ -137,7 +137,7 @@ function handleDownvote() {
 
   // NEXT TO FIGURE OUT
   // Increase overall count by 1
-  totalCount++;
+  // totalCount++;
 }
 
 
@@ -242,11 +242,11 @@ $(function () {
         // ################################################
 
         // Add total vote counter
-        voteCounter = $('<div>');
-          voteCounter.addClass('chip');
-          voteCounter.attr('id', 'total-count');
-          voteCounter.text(parseInt(totalCount));            
-        row.append(voteCounter);
+        // voteCounter = $('<div>');
+        //   voteCounter.addClass('chip');
+        //   voteCounter.attr('id', 'total-count');
+        //   voteCounter.text(parseInt(totalCount));            
+        // row.append(voteCounter);
 
         // Append all elements to each entry
         $("#sightings").prepend(row);
