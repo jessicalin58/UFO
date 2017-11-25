@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <title>UFO Catcher</title>
 
-
+    <!-- Materialize Glyphs Stylesheet -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Materialize Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
@@ -51,8 +54,10 @@
            
         <div class="description">
             <div id="ufo-area"></div>
-            <button>ALIEN!</button>
+            <button id="add-sighting">ALIEN!</button>
             <button>Hm...not alien...</button>
+            <div class="col s12 m6 center-align" id="sightings">
+            </div>
         </div>
     </div>
    
@@ -93,6 +98,11 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js'></script>
     <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/OrbitControls.js'></script>
     
+    <!-- Link to Moment.js -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <!-- Materialize Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
     <script type="text/javascript" src="assets/js/ufo.js"></script>
     <script type="text/javascript" src="assets/js/planet.js"></script>
     <script type="text/javascript" src="assets/js/planet-functions.js"></script>

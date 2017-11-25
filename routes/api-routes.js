@@ -16,19 +16,27 @@ module.exports = function (app) {
     // GET route for getting all of the ufo's
     app.get("/api/planet", function (req, res) {
 
-        // db.UFO.findAll({})
+        // Targets UFOs database entries
+        db.UFO.findAll({})
+            .then(function (dbPost) {
+                res.json(dbPost);
+            });
+
+        // Targets just one entry, but renders twice? *to fix
+        // db.UFO.findAll({
+        //     where: {
+        //         id: 2
+        //     }
+        // })
         //     .then(function (dbPost) {
         //         res.json(dbPost);
         //     });
 
-        db.UFO.findAll({
-            where: {
-                id: 2
-            }
-        })
-            .then(function (dbPost) {
-                res.json(dbPost);
-            });
+        // Targets UserEntry database first created by Laura
+        // db.UserEntry.findAll({}).then(function (results) {
+        //     // results are available to us inside the .then
+        //     res.json(results);
+        // });
     });
 
 
@@ -45,5 +53,15 @@ module.exports = function (app) {
     // PUT route for updating ufo. The updated todo will be available in req.body
     app.put("/api/ufo", function (req, res) {
 
+    });
+
+
+    // GET all user-submitted entries
+    app.get("/api/all", function (req, res) {
+
+        db.UserEntry.findAll({}).then(function (results) {
+            // results are available to us inside the .then
+            res.json(results);
+        });
     });
 };
