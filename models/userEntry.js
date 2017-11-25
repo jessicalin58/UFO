@@ -16,6 +16,8 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     }
+  }, {
+    timestamps: false
   });
   return UserEntry;
 };

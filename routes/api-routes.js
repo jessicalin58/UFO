@@ -51,7 +51,7 @@ module.exports = function (app) {
         db.UserEntry.create({
             comments: req.body.comments,
             datetime: req.body.datetime,
-            created_at: req.body.created_at
+            // created_at: req.body.created_at
         }).then(function (results) {
             res.end();
         });
