@@ -75,5 +75,25 @@ jQuery(document).ready(function () {
         $(document).on('click', function (event) {
             (!$(event.target).is('.cd-nav-trigger') && !$(event.target).is('.cd-nav-trigger span')) && stretchyNavs.removeClass('nav-is-visible');
         });
+
+
+        // $("#container").draggable();
     }
+});
+
+$(function () {
+    var state = true;
+    $("#logo").ready( function () {
+        if (state) {
+            $("#logo").animate({
+
+                width: 100
+            }, 1000);
+        } else {
+            $("#logo").animate({
+                width: 10
+            }, 1000);
+        }
+        state = !state;
+    });
 });

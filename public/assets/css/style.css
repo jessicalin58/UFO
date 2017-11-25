@@ -1,5 +1,47 @@
+ .chart-container {
+   margin-top:50%;
+   color:lime;
+  width: 240px;
+  height: auto;
+  position: absolute;
+        }
+.testimonial {
+  bottom:0;
+  position: fixed;
+    text-align: center;
+    width: -webkit-fill-available;
+       color:white;
+  font-family:Helvetica;
+  padding:10px;
+}
+#number-testimonial{
+  font-size:15px;
+  padding:2px;
+
+
+}
+#next-text {
+
+  font-size:12px;
+  opacity:0.8;
+}
+#logo{
+  color:white;
+  font-family:Helvetica;
+  font-size:12px;
+  opacity:0.8;
+
+    position: fixed;
+  z-index: 2;
+  top: 60px;
+  left: 5%;
+  pointer-events: none;
+}
+#container {
+  border-color: lime;
+}
 .description{
-  margin-top:50px;
+  margin-top:30px;
 }
 .home-container{
   height: 200px;
@@ -158,48 +200,55 @@ body #container img {
 body #container #welcome {
   opacity: 0;
   width: 400px;
-  padding-left: 20px;
+  padding-left: 10px;
   color: white;
 
   position: absolute;
-  top: 50%;
-  margin-top: -35px;
+  top: 70%;
+  margin-top: -65px;
   left: 50px;
 }
 body #container #welcome #lastSentence {
-
-  margin: 0;
+/* 
+  margin: 0; */
 
  
 }
 body #container #welcome #firstSentence {
 
-  margin: 0;
+  /* margin: 0;
   margin-bottom: 8px;
-  margin-top: 2px;
+  margin-top: 2px; */
 }
 body #container #welcome #universe {
 
 
 }
 body #container #content {
-  top: 50%;
-  margin-top: -70px;
+
+  /* border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  border-radius: 2px; */
+
+  top: 60%;
+  margin-top: 0px;
   width: 500px;
-  left: 70px;
+  left: 50px;
+  padding:8px;
 }
 body #container #content h2 {
   margin: 0;
 }
 
 
-body #container #content #description {
-  color: white;
+/* body #container #content #description {
+  color: white; */
   /* letter-spacing: 1.5px; */
-  font-family: Raleway;
+  /* font-family: Raleway; */
   /* font-weight: 200; */
-  font-size: 16pt;
-}
+  /* font-size: 16pt; */
+/* }
 body #container #content #description span {
   color: #F66120;
 }
@@ -215,7 +264,7 @@ body #container #content #description a {
 body #container #content #description a:hover {
   line-height: 11px;
   font-weight: 500;
-}
+} */
 
 
 

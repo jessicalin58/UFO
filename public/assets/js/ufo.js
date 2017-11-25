@@ -8,8 +8,8 @@ $.get("/api/planet", function (data) {
             //row.addClass("chirp");
 
             row.append("<p>" + data[i].comments +  "</p>");
-            row.append("<p>" + data[i].datetime + "</p>");
-            row.append("<p>" + data[i].city + "</p>");
+            row.append("<p>" + data[i].datetime + data[i].city +"</p>");
+            // row.append("<p>" + data[i].city + "</p>");
             // row.append("<p>" + data[i].id + "</p>");
             //row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
 

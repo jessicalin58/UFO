@@ -25,7 +25,7 @@
             },
             ease: Quad.easeInOut,
         });
-    TweenMax.to($('#social'), 0.5, {
+         TweenMax.to($('#social'), 0.5, {
         css: {
         bottom: '20px'
                 }, delay: 0.5,
@@ -48,7 +48,7 @@
             },
             ease: Quad.easeInOut
         });
-    TweenMax.to($('#welcome'), 0.5, {
+        TweenMax.to($('#welcome'), 0.5, {
         css: {
         display: 'none'
                 },
@@ -59,7 +59,7 @@
 
         function init() {
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.z = 80;
+        camera.position.z = 80;
 
             controls = new THREE.OrbitControls(camera);
             controls.maxDistance = 300;
@@ -71,38 +71,32 @@
         lumiereS = new THREE.MeshPhongMaterial({
             emissive: '#F66120'
         });
-    sphereTab.push(new THREE.Mesh(new THREE.SphereGeometry(Math.random() * 1, 20, 20), lumiereS));
+         sphereTab.push(new THREE.Mesh(new THREE.SphereGeometry(Math.random() * 1, 20, 20), lumiereS));
             }
             var posX = -3000;
             var posY = -3000;
             for (var i = 0; i < sphereTab.length; i++) {
         sphereTab[i].position.set(Math.random() * 600 - 300, Math.random() * 600 - 300, Math.random() * 600 - 300);
-    scene.add(sphereTab[i]);
+        scene.add(sphereTab[i]);
             }
             //////Sun////////
             var pinkMat = new THREE.MeshPhongMaterial({
-        color: 0xF66120,
-                emissive: 0xF66120,
+                color: 0x50f442,
+                emissive: 0x50f442,
                 specular: 0xFFED22,
                 shininess: 10,
                 shading: THREE.FlatShading,
                 transparent: 1,
                 opacity: 1
             });
-            var pinkMat2 = new THREE.MeshPhongMaterial({
-        color: 0xF66120,
-                emissive: 0xF66120,
-                specular: 0xFFED22,
-                shininess: 10,
-                shading: THREE.FlatShading,
-                transparent: 1,
-                opacity: 1
+            var pinkMat2 = new THREE.LineBasicMaterial({
+                color: 0xffffff, linewidth: 2
             });
 
 
-            var geometry = new THREE.IcosahedronGeometry(3, 1);
-            var geometry2 = new THREE.OctahedronGeometry(3);
-            var geometry4 = new THREE.IcosahedronGeometry(3, 1);
+            var geometry = new THREE.IcosahedronGeometry(1, 1);
+            var geometry2 = new THREE.IcosahedronGeometry(2,1);
+            var geometry4 = new THREE.IcosahedronGeometry(2, 1);
             // material
             var material = new THREE.MeshPhongMaterial({
         color: 0xffc12d,
@@ -120,14 +114,14 @@
                 shading: THREE.FlatShading
             });
 
-            sun = new THREE.Mesh(new THREE.IcosahedronGeometry(10, 1), pinkMat);
+            sun = new THREE.Mesh(new THREE.BoxGeometry(15, 15,15), pinkMat);
             scene.add(sun);
             objects.push(sun);
-            sun2 = new THREE.Mesh(new THREE.IcosahedronGeometry(10, 1), pinkMat2);
+            sun2 = new THREE.Mesh(new THREE.EdgesGeometry(geometry), pinkMat2);
             sun2.rotation.x = 1;
             scene.add(sun2);
             objects.push(sun2);
-            sun3 = new THREE.Mesh(new THREE.IcosahedronGeometry(10, 1), pinkMat2);
+            sun3 = new THREE.Mesh(new THREE.EdgesGeometry(geometry), pinkMat2);
             sun3.rotation.x = 1;
             scene.add(sun2);
             objects.push(sun3);
@@ -209,7 +203,7 @@
 
         function onMouseDown(event) {
         raycaster = new THREE.Raycaster();
-    mouse = new THREE.Vector2();
+        mouse = new THREE.Vector2();
             mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
             mouse.y = -(event.clientY / renderer.domElement.height) * 2 + 1;
             setFromCamera(raycaster, mouse, camera);
@@ -218,22 +212,22 @@
             if (intersects.length > 0) {
         console.log(currentcolor);
     switch (intersects[0].object.geometry.type) {
-                    case 'IcosahedronGeometry':
-                        if (currentcolor == 0xF66120) {
+                    case 'BoxGeometry':
+            if (currentcolor == 0x50f442) {
                             if (planetViewed == 0) {
-        hideWelcome();
-    planetViewed = 1;
+                                 hideWelcome();
+                                 planetViewed = 1;
                                 TweenMax.from($('#content'), 0.5, {
-        css: {
-        left: '-500px'
+                                css: {
+                                left: '-500px'
                                     },
                                     delay: 0.5,
                                     ease: Quad.easeInOut
                                 });
 
                                 TweenMax.from($('#border'), 0.5, {
-        css: {
-        height: '0px'
+                                css: {
+                                height: '0px'
                                     },
                                     delay: 1,
                                     ease: Quad.easeInOut,
@@ -242,24 +236,26 @@
                                 info.innerHTML = " <span>Old Man Larry,</span>";
 
                                 description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
+
+                                $("ufo-data").addClass("ufo-area");
                             }
                             if (planetViewed == 2 || planetViewed == 3 || planetViewed == 4) {
-            planetViewed = 1;
-        TweenMax.from($('#content'), 0.5, {
-            css: {
-            left: '-500px'
+                            planetViewed = 1;
+                              TweenMax.from($('#content'), 0.5, {
+                              css: {
+                                left: '-500px'
                                     },
                                     ease: Quad.easeInOut
                                 });
                                 TweenMax.to($('#border'), 0.2, {
-            css: {
-            height: '200px'
+                                css: {
+                                 height: '200px'
                                     }, delay: 1,
                                     ease: Quad.easeInOut,
                                 });
                                 TweenMax.from($('#border'), 0.5, {
-            css: {
-            height: '0px'
+                                 css: {
+                                    height: '0px'
                                     },
                                     delay: 0.5,
                                     ease: Quad.easeInOut,
@@ -272,29 +268,29 @@
                         }
                         if (currentcolor == 0x26D7E7) {
                             if (planetViewed == 1 || planetViewed == 3 || planetViewed == 4) {
-                planetViewed = 2;
-            info.innerHTML = "<p>Lisa Simpsons</p>";
+                            planetViewed = 2;
+                            info.innerHTML = "<p>Lisa Simpsons</p>";
 
                                 // document.getElementById('couleur').style.color = "#26d7e7";
 
                                 description.innerHTML = "<p> I mean it was right in my face, but also not...";
 
                                 TweenMax.from($('#content'), 0.5, {
-                    css: {
-                    left: '-500px'
+                             css: {
+                             left: '-500px'
                                     },
                                     ease: Quad.easeInOut
                                 });
                                 TweenMax.to($('#border'), 0.2, {
-                    css: {
-                    height: '200px'
+                             css: {
+                              height: '200px'
                                     }, delay: 1,
                                     ease: Quad.easeInOut,
                                 });
 
                                 TweenMax.from($('#border'), 0.5, {
-                    css: {
-                    height: '0px'
+                                 css: {
+                                  height: '0px'
                                     },
                                     delay: 0.5,
                                     ease: Quad.easeInOut,
@@ -303,8 +299,8 @@
                         }
                         if (currentcolor == 0xffc12d) {
                             if (planetViewed == 1 || planetViewed == 2 || planetViewed == 4) {
-                    planetViewed = 3;
-                info.innerHTML = '<p>Yoda</p>';
+                            planetViewed = 3;
+                             info.innerHTML = '<p>Yoda</p>';
 
 
                                 description.innerHTML = "<p>Bright in the sun it was. Hah!</p>";

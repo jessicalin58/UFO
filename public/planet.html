@@ -16,6 +16,7 @@
     </style>
 
     <header>
+        <nav id="logo">U30 CATCHER</nav>
 	<nav class="cd-stretchy-nav">
 		<a class="cd-nav-trigger" href="#0">
 			Menu
@@ -38,11 +39,11 @@
 
         <div id="welcome">
 
-            <p id="firstSentence">C:/Do you have what it takes to spot and alien?
-                <span id="universe">.</span>
+            <p id="firstSentence">C:/Documents/Initialization
+                <span id="universe"></span>
             </p>
             <p id="lastSentence">Click on the
-                <span id="sun">elements</span> decide if it deserves the alien novel prize or write your own</p>
+                <span id="sun">cube</span> to get started</p>
         </div>
         <div id="content">
             <h2 id="contentTitle"></h2>
@@ -50,12 +51,25 @@
             <p id="description"></p>
            
         <div class="description">
-            <div id="ufo-area"></div>
+            <div id="ufo-data"></div>
+            <!-- <div id="ufo-area"></div>
             <button>ALIEN!</button>
-            <button>Hm...not alien...</button>
+            <button>Hm...not alien...</button> -->
         </div>
     </div>
-   
+
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+   </div>
+
+    <div class="testimonial">
+        <div id="number-testimonial">03_</div>
+        <div id="next-text">TOTAL VIEWED</div>
+    </div>
+
 
     <!-- Trigger/Open The Modal -->
 
@@ -80,10 +94,10 @@
                     <button onclick="playAud()" type="button">▶</button>
                     <button onclick="pauseAud()" type="button">▆</button>
             </div>
-
+<!-- 
             <audio autoplay loop id="myAudio">
                 <source src="/assets/music/Alien.m4a">
-            </audio>
+            </audio> -->
         
   
 
@@ -92,6 +106,9 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js'></script>
     <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/OrbitControls.js'></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     
     <script type="text/javascript" src="assets/js/ufo.js"></script>
     <script type="text/javascript" src="assets/js/planet.js"></script>
@@ -99,6 +116,12 @@
 
     <script src="assets/js/modernizr.js"></script> <!-- Modernizr -->
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    
+    <script type="text/javascript" src="assets/js/chart.js"></script>
 
 
 
