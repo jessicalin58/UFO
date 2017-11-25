@@ -162,10 +162,10 @@ $(function () {
 
     let newSighting = {
       comments: $('#new-sighting').val().trim(),
-      datetime: moment(Date.now()).format('YYYY/MM/DD hh:mm a'),
       // vote: 
       // count: 
-      created_at: moment().format("YYYY-MM-DD HH:mm:ss")
+      datetime: moment(Date.now()).format('YYYY/MM/DD hh:mm:ss a')
+      // created_at: moment().format("YYYY-MM-DD HH:mm:ss")
     }
 
     console.log(newSighting);
@@ -200,7 +200,8 @@ $(function () {
 
   // ROUTING
   // ==========================================
-  // When the page loads, grab all of our chirps
+  // When the page loads, grab all of our sighting entries
+  // Connects with GET route in api-routes
   $.get("/api/all", function (data) {
 
     if (data.length !== 0) {
@@ -208,11 +209,11 @@ $(function () {
       for (var j = 0; j < data.length; j++) {
 
         var row = $("<div>");
-        row.addClass("chirp");
+        row.addClass("sighting-entry");
 
         row.append("<p>" + data[j].comments + "</p>");
         row.append("<p>" + data[j].datetime + "</p>");
-        row.append("<p>Created At " + moment(data[j].created_at).format("h:mma on dddd") + "</p>");
+        // row.append("<p>Created At " + moment(data[j].created_at).format("h:mma on dddd") + "</p>");
 
         // ################################################
         // Buttons for up/down voting  (aren't part of upvote package structure)

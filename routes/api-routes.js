@@ -37,6 +37,21 @@ module.exports = function (app) {
     // GET all user-submitted entries
     app.get("/api/all", function (req, res) {
 
+        // Need to populate array of random numbers (to relate to ids of dataset)
+        // Hard-code for testing, then needs to be out of all possible ids in UFO table...
+        let entriesArray = [1, 2, 3, 4];
+        let query = entriesArray[Math.floor(Math.random() * entriesArray.length)];
+            console.log(query);
+
+        // Test that random id selected returns corresponding resource from db  ~WORKS
+        // db.UserEntry.findOne({
+        //     where: {
+        //         id: query
+        //     }
+        // }).then(function(results) {
+        //     res.json(results);
+        // });
+
         db.UserEntry.findAll({}).then(function (results) {
             // results are available to us inside the .then
             res.json(results);
