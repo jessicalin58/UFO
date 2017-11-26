@@ -6,8 +6,10 @@
 // =============================================================
 
 // Grabbing our models
-
 var db = require("../models");
+
+// lodash package
+var _ = require('lodash');
 
 // Routes
 // =============================================================
@@ -40,8 +42,8 @@ module.exports = function (app) {
         // Need to populate array of random numbers (to relate to ids of dataset)
         // Hard-code for testing, then needs to be out of all possible ids in UFO table...
         let entriesArray = [1, 2, 3, 4];
-        let query = entriesArray[Math.floor(Math.random() * entriesArray.length)];
-            console.log(query);
+        // let query = entriesArray[Math.floor(Math.random() * entriesArray.length)];
+            // console.log(query);
 
         // Test that random id selected returns corresponding resource from db  ~WORKS
         // db.UserEntry.findOne({
@@ -51,11 +53,34 @@ module.exports = function (app) {
         // }).then(function(results) {
         //     res.json(results);
         // });
+        for (let s = 0; s < entriesArray.length; s++) {
+            let entry = entriesArray[s];
+        
+            db.UserEntry.findAll({
+                
+                    where: {
+                        id: entry
+                    }  
+                
+                // where: {
+                //     id: entriesArray.splice(',')
+                // }
+            }).then(function (results) {
+                // results are available to us inside the .then
+                for (let i = 0; i < results.length; i++) {
+                    let displayEntry = results[i];
+                    console.log(displayEntry.id + ' ' + displayEntry.comments);
+                }
+                // res.json(results[s]);
+                // console.log(results);
+                console.log('==========================');
+                
 
-        db.UserEntry.findAll({}).then(function (results) {
-            // results are available to us inside the .then
-            res.json(results);
-        });
+                // Uses lodash package; trying to return id results from array
+                // return _.map(results, function (UserEntry) { return db.UserEntry; })
+                
+            });
+        }
     });
 
     // POST route for saving a new ufo sighting entry
