@@ -53,9 +53,12 @@ module.exports = function (app) {
         // }).then(function(results) {
         //     res.json(results);
         // });
+
+        // Loop through length of array of ids
         for (let s = 0; s < entriesArray.length; s++) {
             let entry = entriesArray[s];
         
+            // Perform findAll query for each matching id
             db.UserEntry.findAll({
                 
                     where: {
@@ -67,13 +70,31 @@ module.exports = function (app) {
                 // }
             }).then(function (results) {
                 // results are available to us inside the .then
-                for (let i = 0; i < results.length; i++) {
-                    let displayEntry = results[i];
-                    console.log(displayEntry.id + ' ' + displayEntry.comments);
-                }
-                // res.json(results[s]);
-                // console.log(results);
-                console.log('==========================');
+                
+                // for (var i = 0; i < results.length; i++) {
+                
+                setTimeout(() => {
+                    for (var i = 0; i < results.length; i++) {
+                     
+                    console.log(results[i].comments);
+                    
+                    res.send(results[i]);
+                    }
+                }, 2000);    
+                // res.json(results[i]);
+                
+                // }
+
+                // return _.map(results);
+                // console.log(_.map(results));
+
+                // Second loop through results
+                // for (var i = 0; i < results.length; i++) {
+                //     var displayEntry = results[i];
+                //     // console.log(displayEntry.id + ' ' + displayEntry.comments); 
+                // }
+
+                // res.json(results);
                 
 
                 // Uses lodash package; trying to return id results from array
@@ -81,6 +102,7 @@ module.exports = function (app) {
                 
             });
         }
+
     });
 
     // POST route for saving a new ufo sighting entry
