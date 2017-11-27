@@ -1321,3 +1321,13 @@ keyframes
   clip: rect(0, 900px, 0, 0);
   animation: noise-anim-2 3s infinite linear alternate-reverse;
 }
+
+/* Style for vote buttons and counter input */
+button.downvote, button.upvote {
+  margin: 5px;
+}
+
+input#disabled {
+  width: 30px;
+  text-align: center;
+}
