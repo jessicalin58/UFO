@@ -5,7 +5,7 @@ var ctx = "myChart";
 
 $(document).ready(function () {
     $.ajax({
-        url: "/api/planet",
+        url: "/api/chart",
         type: "GET",
         success: function (data) {
             console.log(data);

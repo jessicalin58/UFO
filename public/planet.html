@@ -5,18 +5,22 @@
     <meta charset="UTF-8">
     <title>UFO Catcher</title>
 
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,300,400,500,600,700,800');
+        @import url('https://fonts.googleapis.com/css?family=Nunito');
+        @import url('https://fonts.googleapis.com/css?family=Alegreya');
+    </style>
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
 <body>
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,300,400,500,600,700,800');
-    </style>
 
     <header>
-        <nav id="logo">U30 CATCHER</nav>
+        <nav id="logo" class="glitch" data-text="U30 CATCHER">U30 CATCHER</nav>
+        <!-- <div class="glitch" data-text="GLITCH">GLITCH</div> -->
+        
 	<nav class="cd-stretchy-nav">
 		<a class="cd-nav-trigger" href="#0">
 			Menu
@@ -35,9 +39,30 @@
 	</nav>
 </header>
 
+    <div class="header">
+        <h3 id="aliens">Aliens or <strong>not?</strong></h3>
+    
+             <!-- We're using data provided by National UFO Reporting Center (NUFORC) available
+            <a href="https://www.kaggle.com/NUFORC/ufo-sightings/data">here</a>
+            to display real UFO sightings dated back in 1949 all over the world.
+             If you have any questions,
+            <a href="#">click here</a> -->
+        </div>
+
+
+    </div>
+
     <div id="container">
 
         <div id="welcome">
+
+           <p> UF3 Catcher uses data provided by National UFO Reporting Center (NUFORC) 
+               available
+                        <a href="https://www.kaggle.com/NUFORC/ufo-sightings/data">here</a>
+                        to display real UFO sightings dated back in 1949 all over the world.
+                        
+                         If you have any questions,
+                        <a href="#">click here</a> </p>
 
             <p id="firstSentence">C:/Documents/Initialization
                 <span id="universe"></span>
@@ -51,55 +76,59 @@
             <p id="description"></p>
            
         <div class="description">
-            <div id="ufo-data"></div>
+            <div id="ufo-area"></div>
             <!-- <div id="ufo-area"></div>
             <button>ALIEN!</button>
             <button>Hm...not alien...</button> -->
         </div>
     </div>
 
-    <div class="chart-container">
+    <!-- <div class="chart-container">
         <canvas id="myChart"></canvas>
-    </div>
+    </div> -->
 
 
    </div>
 
     <div class="testimonial">
-        <div id="number-testimonial">03_</div>
-        <div id="next-text">TOTAL VIEWED</div>
+        <div id="credits"></div>
+        <div id="social"></div>
+        <!-- <button onclick="playAud()" type="button">sound</button> -->
+        <button onclick="togglePlay()" type="button" id="off">SOUND</button>
+        <!-- <div id="number-testimonial">03_</div>
+        <div id="next-text">TOTAL VIEWED</div> -->
     </div>
 
+            <!-- Audio unactivated for now -->
+                        <audio autoplay loop id="myAudio">
+                                        <source src="/assets/music/Alien.m4a">
+                                    </audio>
 
-    <!-- Trigger/Open The Modal -->
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+            
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>What is UF3-CATHCER?</p>
+                    <hr>
+                        <div class="flexbox-container">
+                        <div class="about-modal-content">
+                            <p>Are you ready to catch UFOs?
+                            <br> We're using data provided by National UFO Reporting Center (NUFORC) available <a href ="https://www.kaggle.com/NUFORC/ufo-sightings/data">here</a>
+                            to display real UFO sightings dated back in 1949 all over the world. 
+                            <br> If you have any questions, <a href="#">click here</a> </p>
+                        </div>
+                        <div class="about-modal-content-right">
+                        <p><br>This website was build with <i>threejs, sequelize and chartjs.</i>
+                        <br> No cows were harmed/abducted in the process.
+                        <br> Special thanks to
+                        __credits, NPM, Codepen, StackOverflow and friends and teachers from UCF Bootcamp.</p>
+                        </div>
+                        </div>
+                </div>
 
-    <!-- <button id="myBtn">♣</button> -->
-    
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-    
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <span>Thank you for visiting this website. 
-                <br>UFO Catcher was made my students using accurate database from UFODATA.
-                <br> So far we have used: 
-                    <ol>
-                        <ul>express</ul>
-                        <ul>mysql</ul>
-                         <ul>threejs</ul>
-                        <ul>sequelize</ul>
-                    </ol>
-                <br> If you wish to support us, please visit our portfolio and check out our merchandise. Happy alien hunting!</span>
-                    <button onclick="playAud()" type="button">▶</button>
-                    <button onclick="pauseAud()" type="button">▆</button>
-            </div>
-<!-- 
-            <audio autoplay loop id="myAudio">
-                <source src="/assets/music/Alien.m4a">
-            </audio> -->
-        
-  
+
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>

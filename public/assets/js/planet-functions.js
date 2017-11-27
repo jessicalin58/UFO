@@ -1,3 +1,6 @@
+// $(document).ready(function () { 
+//     modal.style.display = "block";
+// });
 
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -25,15 +28,48 @@ window.onclick = function (event) {
     }
 }
 
-    var aud = document.getElementById("myAudio");
+    // var aud = document.getElementById("myAudio");
 
-    function playAud() {
-        aud.play();
-    }
+    // function playAud() {
+    //     aud.play();
+    //     $('on').css({
+    //         'text-decoration': 'line-through',
+    //         'color': 'red'
+    //     });
+    // }
 
-    function pauseAud() {
-        aud.pause();
-    } 
+    // function pauseAud() {
+    //     aud.pause();
+    //     $('button').css({
+    //         'text-decoration': 'line-through'
+            
+    //     });
+       
+    // } 
+
+    var myAudio = document.getElementById("myAudio");
+    var isPlaying = true;
+
+    function togglePlay() {
+        if (isPlaying) {
+            myAudio.pause()
+            $('button').css({
+                'text-decoration': 'line-through'
+
+            });
+        } else {
+            myAudio.play();
+            $('button').css({
+                'text-decoration': 'none'
+            });
+        }
+    };
+    myAudio.onplaying = function () {
+        isPlaying = true;
+    };
+    myAudio.onpause = function () {
+        isPlaying = false;
+    };
 
 
      //audio functionalities 
@@ -74,6 +110,7 @@ jQuery(document).ready(function () {
 
         $(document).on('click', function (event) {
             (!$(event.target).is('.cd-nav-trigger') && !$(event.target).is('.cd-nav-trigger span')) && stretchyNavs.removeClass('nav-is-visible');
+            
         });
 
 
@@ -97,3 +134,9 @@ $(function () {
         state = !state;
     });
 });
+
+
+// sound toggle
+function sound() {
+    document.getElementById("off").style.textDecoration = "line-through";
+}

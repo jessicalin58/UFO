@@ -202,6 +202,7 @@
         }
 
         function onMouseDown(event) {
+      
         raycaster = new THREE.Raycaster();
         mouse = new THREE.Vector2();
             mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
@@ -233,38 +234,111 @@
                                     ease: Quad.easeInOut,
                                 });
 
-                                info.innerHTML = " <span>Old Man Larry,</span>";
+                                // info.innerHTML = " <span>Old Man Larry,</span>";
 
-                                description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
+                                // description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
 
-                                $("ufo-data").addClass("ufo-area");
+                                $.get("/api/planet", function (data) {
+
+                                    if (data.length !== 0) {
+
+                                        for (var i = 0; i < data.length; i++) {
+
+                                            var row = $("<div>");
+                                            row.addClass("ufo-area");
+
+                                            row.append("<p>" + data[i].comments + "</p>");
+                                            row.append("<p>" + "Date:" + data[i].datetime + " | Location:"+ data[i].city + "</p>");
+                                            // row.append("<p>" + data[i].city + "</p>");
+                                            // row.append("<p>" + data[i].id + "</p>");
+                                            //row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+
+                                            $("#ufo-area").prepend(row);
+
+                                        }
+
+                                    }
+
+                                });
+
+                                
+
+                                // $("ufo-data").addClass("ufo-area");
                             }
-                            if (planetViewed == 2 || planetViewed == 3 || planetViewed == 4) {
-                            planetViewed = 1;
-                              TweenMax.from($('#content'), 0.5, {
-                              css: {
-                                left: '-500px'
-                                    },
-                                    ease: Quad.easeInOut
-                                });
-                                TweenMax.to($('#border'), 0.2, {
-                                css: {
-                                 height: '200px'
-                                    }, delay: 1,
-                                    ease: Quad.easeInOut,
-                                });
-                                TweenMax.from($('#border'), 0.5, {
-                                 css: {
-                                    height: '0px'
+                            else {
+
+                                hideWelcome();
+                                planetViewed = 1;
+                                TweenMax.from($('#content'), 0.5, {
+                                    css: {
+                                        left: '-500px'
                                     },
                                     delay: 0.5,
+                                    ease: Quad.easeInOut
+                                });
+
+                                TweenMax.from($('#border'), 0.5, {
+                                    css: {
+                                        height: '0px'
+                                    },
+                                    delay: 1,
                                     ease: Quad.easeInOut,
                                 });
 
-                                info.innerHTML = " <span>Danny</span>";
+                                // info.innerHTML = " <span>Old Man Larry,</span>";
 
-                                description.innerHTML = "<p>Quicker than a bolt!!</p>";
+                                // description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
+
+                                $.get("/api/planet", function (data) {
+
+                                    if (data.length !== 0) {
+
+                                        for (var i = 0; i < data.length; i++) {
+
+                                            var row = $("<div>");
+                                            row.addClass("ufo-area");
+
+                                            row.append("<p>" + data[i].comments + "</p>");
+                                            // row.append("<p>" + "Date:" + data[i].datetime + " | Location:" + data[i].city + "</p>");
+                                            // row.append("<p>" + data[i].city + "</p>");
+                                            // row.append("<p>" + data[i].id + "</p>");
+                                            //row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+
+                                            $("#ufo-area").prepend(row);
+
+                                        }
+
+                                    }
+
+                                });
+
                             }
+                            // if (planetViewed == 2 || planetViewed == 3 || planetViewed == 4) {
+                            // planetViewed = 1;
+                            //   TweenMax.from($('#content'), 0.5, {
+                            //   css: {
+                            //     left: '-500px'
+                            //         },
+                            //         ease: Quad.easeInOut
+                            //     });
+                            //     TweenMax.to($('#border'), 0.2, {
+                            //     css: {
+                            //      height: '200px'
+                            //         }, delay: 1,
+                            //         ease: Quad.easeInOut,
+                            //     });
+                            //     TweenMax.from($('#border'), 0.5, {
+                            //      css: {
+                            //         height: '0px'
+                            //         },
+                            //         delay: 0.5,
+                            //         ease: Quad.easeInOut,
+                            //     });
+
+                            //     info.innerHTML = " <span>Danny</span>";
+
+                            //     description.innerHTML = "<p>Quicker than a bolt!!</p>";
+                            // }
                         }
                         if (currentcolor == 0x26D7E7) {
                             if (planetViewed == 1 || planetViewed == 3 || planetViewed == 4) {

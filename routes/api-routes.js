@@ -23,7 +23,7 @@ module.exports = function (app) {
 
         db.UFO.findAll({
             where: {
-                id: 2
+                id: Math.round(Math.random() * 100)
             }
         })
             .then(function (dbPost) {
@@ -33,8 +33,12 @@ module.exports = function (app) {
 
 
     // POST route for saving a ufo click. You can create a todo using the data on req.body
-    app.post("/api/ufo", function (req, res) {
+    app.get("/api/chart", function (req, res) {
 
+        db.UFO.findAll({})
+            .then(function (dbPost) {
+                res.json(dbPost);
+            });
     });
 
     // DELETE route for deleting ufo. You can access the todo's id in req.params.id
