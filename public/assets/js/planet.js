@@ -201,58 +201,7 @@
     raycaster.ray.direction.set(coords.x, coords.y, 0.5).unproject(camera).sub(camera.position).normalize();
         }
 
-        // ====================================================================================
-        // Functions for voting buttons
-
-        // Determines which entry is being upvoted; increases rating +1
-        function handleUpvote() {
-            // console.log('upvote clicked');
-
-            // var currentPost = $(this).parent()
-            // console.log(currentPost);
-
-            // Grabs value of counter for each entry  ~WORKS!!!!!!!!
-            // var $counterVal = currentPost.children('#disabled');
-            //     console.log($counterVal);
-            // var upcount = $counterVal.val();
-
-            // Increases counter value by one
-            // upcount++;
-            // Updates counter value on page
-            // $counterVal.val(upcount);
-
-            var upcount = $('#disabled').val();
-            console.log('Add 1 to ' + upcount);
-
-            $('#disabled').val(++upcount);
-
-            // $('#disabled').val(function (i, oldcount) {
-            //     return parseInt(oldcount*1+1)
-            // });
-        }
-
-        // Determines which entry is being downvoted; decreases rating -1
-        function handleDownvote() {
-            // console.log('downvote clicked');
-
-            // var currentPost = $(this).parent()
-            // // Grabs value of counter for each entry
-            // var $counterVal = currentPost.children('#disabled');
-            // var downcount = $counterVal.val();
-
-            // Decreases counter value by one
-            // downcount--;
-            // $counterVal.val(downcount);
-
-            var downcount = $('#disabled').val();
-            console.log('Subtract 1 from ' + downcount);
-
-            $('#disabled').val(--downcount);
-
-            // $('#disabled').val(function (i, oldcount) {
-            //     return parseInt( oldcount*1-1 )
-            // });
-        }
+        
         // ====================================================================================
 
         function onMouseDown(event) {
@@ -362,13 +311,15 @@
                                         for (var i = 0; i < data.length; i++) {
 
                                             var row = $("<div>");
-                                            row.addClass("ufo-area");
+                                            row.addClass("ufo-sighting");
+                                            row.attr("id", data[i].id);
 
                                             row.append("<p>" + data[i].comments + "</p>");
-                                            row.append("<p>" + "Date:" + data[i].datetime + " | Location:" + data[i].city + "</p>");
+                                            // row.append("<p>" + "Date:" + data[i].datetime + " | Location:" + data[i].city + "</p>");
                                             // row.append("<p>" + data[i].city + "</p>");
                                             // row.append("<p>" + data[i].id + "</p>");
                                             //row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+                                            row.append("<p>Case: " + moment(data[i].datetime).format("YYYY") + " | " + data[i].city + "</p>");
 
                                             // Buttons and vote counter
                                             // ====================================================================================
@@ -383,9 +334,12 @@
                                             row.append(upvoteBtn);
 
                                             // Creates disabled input to act as vote-counter for each entry
-                                            var counter = $('<input disabled value=0>').val(0);
-                                                counter.addClass('center-align');
-                                                counter.attr('id', 'disabled');
+                                            // ****Need to be pulling vote value from db table, not fresh and blank on the page****
+                                            // var counter = $('<input disabled value=' + data[i].id + '>').val(0);
+                                            var counter = $('<input type="number" value=' + data[i].id + ' readonly="true"/>').val(0);
+                                                counter.addClass('counter');
+                                                // counter.attr('id', 'disabled');
+                                                counter.attr('id', data[i].id);
                                             row.append(counter);
 
                                             // Adds not alien (vote down) button
@@ -399,7 +353,7 @@
                                             row.append(downvoteBtn);
                                             // ====================================================================================
 
-                                            $("#ufo-area").prepend(row);
+                                            $("#ufo-area").append(row);
 
                                         }
 
