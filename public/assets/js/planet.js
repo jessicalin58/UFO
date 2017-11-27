@@ -201,6 +201,60 @@
     raycaster.ray.direction.set(coords.x, coords.y, 0.5).unproject(camera).sub(camera.position).normalize();
         }
 
+        // ====================================================================================
+        // Functions for voting buttons
+
+        // Determines which entry is being upvoted; increases rating +1
+        function handleUpvote() {
+            // console.log('upvote clicked');
+
+            // var currentPost = $(this).parent()
+            // console.log(currentPost);
+
+            // Grabs value of counter for each entry  ~WORKS!!!!!!!!
+            // var $counterVal = currentPost.children('#disabled');
+            //     console.log($counterVal);
+            // var upcount = $counterVal.val();
+
+            // Increases counter value by one
+            // upcount++;
+            // Updates counter value on page
+            // $counterVal.val(upcount);
+
+            var upcount = $('#disabled').val();
+            console.log('Add 1 to ' + upcount);
+
+            $('#disabled').val(++upcount);
+
+            // $('#disabled').val(function (i, oldcount) {
+            //     return parseInt(oldcount*1+1)
+            // });
+        }
+
+        // Determines which entry is being downvoted; decreases rating -1
+        function handleDownvote() {
+            // console.log('downvote clicked');
+
+            // var currentPost = $(this).parent()
+            // // Grabs value of counter for each entry
+            // var $counterVal = currentPost.children('#disabled');
+            // var downcount = $counterVal.val();
+
+            // Decreases counter value by one
+            // downcount--;
+            // $counterVal.val(downcount);
+
+            var downcount = $('#disabled').val();
+            console.log('Subtract 1 from ' + downcount);
+
+            $('#disabled').val(--downcount);
+
+            // $('#disabled').val(function (i, oldcount) {
+            //     return parseInt( oldcount*1-1 )
+            // });
+        }
+        // ====================================================================================
+
         function onMouseDown(event) {
       
         raycaster = new THREE.Raycaster();
@@ -238,28 +292,29 @@
 
                                 // description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
 
-                                $.get("/api/planet", function (data) {
+                                // Duplicate api call, not needed?  ~Laura
+                                // $.get("/api/planet", function (data) {
 
-                                    if (data.length !== 0) {
+                                //     if (data.length !== 0) {
 
-                                        for (var i = 0; i < data.length; i++) {
+                                //         for (var i = 0; i < data.length; i++) {
 
-                                            var row = $("<div>");
-                                            row.addClass("ufo-area");
+                                //             var row = $("<div>");
+                                //             row.addClass("ufo-area");
 
-                                            row.append("<p>" + data[i].comments + "</p>");
-                                            row.append("<p>" + "Date:" + data[i].datetime + " | Location:"+ data[i].city + "</p>");
-                                            // row.append("<p>" + data[i].city + "</p>");
-                                            // row.append("<p>" + data[i].id + "</p>");
-                                            //row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+                                //             row.append("<p>" + data[i].comments + "</p>");
+                                //             row.append("<p>" + "Date:" + data[i].datetime + " | Location:"+ data[i].city + "</p>");
+                                //             // row.append("<p>" + data[i].city + "</p>");
+                                //             // row.append("<p>" + data[i].id + "</p>");
+                                //             //row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
 
-                                            $("#ufo-area").prepend(row);
+                                //             $("#ufo-area").prepend(row);
 
-                                        }
+                                //         }
 
-                                    }
+                                //     }
 
-                                });
+                                // });
 
                                 
 
@@ -289,7 +344,18 @@
 
                                 // description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
 
+                                // On-clicks and function triggers for vote buttons
+                                // ====================================================================================
+                                // Increase value of 'upcount button' on click
+                                $(this).on('click', 'button.upvote', handleUpvote);
+
+                                // Increase value of 'downcount button' on click
+                                $(this).on('click', 'button.downvote', handleDownvote);
+                                // ====================================================================================
+
                                 $.get("/api/planet", function (data) {
+                                    // Empties div so one entry is viewed at a time
+                                    $("#ufo-area").empty();
 
                                     if (data.length !== 0) {
 
@@ -299,10 +365,39 @@
                                             row.addClass("ufo-area");
 
                                             row.append("<p>" + data[i].comments + "</p>");
-                                            // row.append("<p>" + "Date:" + data[i].datetime + " | Location:" + data[i].city + "</p>");
+                                            row.append("<p>" + "Date:" + data[i].datetime + " | Location:" + data[i].city + "</p>");
                                             // row.append("<p>" + data[i].city + "</p>");
                                             // row.append("<p>" + data[i].id + "</p>");
                                             //row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+
+                                            // Buttons and vote counter
+                                            // ====================================================================================
+                                            // Add alien! (vote up) button
+                                            var upvoteBtn = $('<button>').addClass('upvote');
+                                                upvoteBtn.attr('data-upcount');
+                                            // Add icon to upvote button
+                                            var upIcon = $('<i>').text('ALIEN');
+                                                upIcon.addClass('material-icons');
+                                                upvoteBtn.append(upIcon);
+                                            // Add upvote button to each entry
+                                            row.append(upvoteBtn);
+
+                                            // Creates disabled input to act as vote-counter for each entry
+                                            var counter = $('<input disabled value=0>').val(0);
+                                                counter.addClass('center-align');
+                                                counter.attr('id', 'disabled');
+                                            row.append(counter);
+
+                                            // Adds not alien (vote down) button
+                                            var downvoteBtn = $('<button>').addClass('downvote');
+                                                downvoteBtn.attr('data-downcount');
+                                            // Add icon to downvote button
+                                            var downIcon = $('<i>').text('NOT ALIEN');
+                                                downIcon.addClass('material-icons');
+                                                downvoteBtn.append(downIcon);
+                                            // Add downvote button to each entry
+                                            row.append(downvoteBtn);
+                                            // ====================================================================================
 
                                             $("#ufo-area").prepend(row);
 
