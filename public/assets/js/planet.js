@@ -305,6 +305,7 @@
                                 $.get("/api/planet", function (data) {
                                     // Empties div so one entry is viewed at a time
                                     $("#ufo-area").empty();
+                                    // $("#ufo-area").remove();
 
                                     if (data.length !== 0) {
 
@@ -354,6 +355,7 @@
                                             // ====================================================================================
 
                                             $("#ufo-area").append(row);
+                                            // $("#ufo-area").replaceWith(row);
 
                                         }
 
