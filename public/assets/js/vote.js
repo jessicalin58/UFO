@@ -3,67 +3,61 @@
 
 // Determines which entry is being upvoted; increases rating +1
 function handleUpvote() {
-  // console.log('upvote clicked');
 
-  // var currentPost = $(this).parent()
-  // console.log(currentPost);
+  // Selects current entry
+  var currentPost = $(this).parent()
 
-  // Grabs value of counter for each entry  ~WORKS!!!!!!!!
-  // var $counterVal = currentPost.children('#disabled');
-  //     console.log($counterVal);
-  // var upcount = $counterVal.val();
+  // Selects id of current entry
+  var currentId = currentPost[0].id;
 
-  // Increases counter value by one
-  // upcount++;
-  // Updates counter value on page
-  // $counterVal.val(upcount);
+  // Grabs id of counter for each entry
+  var $counterVal = currentPost.children('input');
 
-  var upcount = $('#disabled').val();
-  console.log('Add 1 to ' + upcount);
+  // Counter value, by id, of each entry
+  var currentCountVal = $counterVal[0].value;
+  console.log(currentCountVal);
+  // Counter id, which relates to entry id, from table
+  var currentCounterId = $counterVal.attr('id');
+  console.log(currentCounterId);
 
-  $('#disabled').val(++upcount);
+// var upcount = $counterVal.val();
+  // $('input').val(++upcount);
 
-  // $('#disabled').val(function (i, oldcount) {
-  //     return parseInt(oldcount*1+1)
-  // });
+  // Sets new count value by adding 1
+  $('input').val(++currentCountVal);
+  console.log('New count value is: ' + currentCountVal); 
 }
 
 // Determines which entry is being downvoted; decreases rating -1
 function handleDownvote() {
-        // console.log(this);  //logs button div
-            // var testParent = $(this).parent();
-            // console.log(testParent);
-            // var testId = testParent[0].id;
-            // console.log(testId);
 
   // Selects current entry
   var currentPost = $(this).parent()
-  console.log(currentPost);
+  // console.log(currentPost);
+
   // Selects id of current entry
   var currentId = currentPost[0].id;
   // console.log(currentId);
 
-  // Grabs value of counter for each entry
+  // Grabs id of counter for each entry
   var $counterVal = currentPost.children('input');
-  console.log($counterVal);
-  console.log($counterVal[0].value);
+  // console.log($counterVal);
+  // console.log($counterVal[0].value);
+
+  // Counter value, by id, of each entry
+  var currentCountVal = $counterVal[0].value;
+  console.log(currentCountVal);
+  // Counter id, which relates to entry id, from table
   var currentCounterId = $counterVal.attr('id');
   console.log(currentCounterId);
 
-            // var omgThisOne = $counterVal + currentCounterId;
+  // var downcount = $counterVal.val();
+  // var downcount = currentCountVal;
+  // console.log(downcount);
 
-            // var $counterVal = currentId.children('#disabled');
-  var downcount = $counterVal.val();
-  // var downcount = currentCounterId.data('value');
-  console.log(downcount);
+  // $('input').val(--downcount);
 
-            // Decreases counter value by one
-            // downcount--;
-            // $counterVal.val(downcount);
-
-            // var downcount = $('#disabled').val();
-            // console.log('Subtract 1 from ' + downcount);
-
-  $('input').val(--downcount);
-
+  // Sets new count value by subtracting 1
+  $('input').val(--currentCountVal);
+  console.log('New count value is: ' + currentCountVal);
 }
