@@ -84,18 +84,51 @@ function submitVoted() {
 
   $.post("/api/voted/", votedSighting, function () {
 
-    console.log('Sighting hopefully logged to db...');
+    console.log('Sighting vote logged to db!');
 
-    // Have a toast popup and say "sighting logged" then empty div
-    $('#ufo-area').empty();
+    // Renders 'toast' popup
+    snackbar(); 
 
+    // Empty ufo-area div for next entry
+    setTimeout(() => {
+      $('#ufo-area').empty();
+    }, 2000);
+    
   });
+}
 
+// ====================================================================================
+// Special effects!
 
+// Have a toast popup and say "sighting logged" then empty div
+function snackbar() {
+  // Get the snackbar DIV
+  var x = document.getElementById("snackbar")
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  typeWriter();
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function () { x.className = x.className.replace("show", ""); }, 2000);
+}
+
+// Typewriter effect for snackbar
+var i = 0;
+var txt = 'Entry vote logged...'; /* The text */
+var speed = 60; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("snackbar").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
 }
 
 
 
+// ====================================================================================
 // PROCESS
 $(function () {
 
