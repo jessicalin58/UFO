@@ -315,7 +315,7 @@
                                             row.addClass("ufo-sighting");
                                             row.attr("id", data[i].id);
 
-                                            row.append("<p>" + data[i].comments + "</p>");
+                                            row.append("<p class='comments'>" + data[i].comments + "</p>");
                                             // row.append("<p>" + "Date:" + data[i].datetime + " | Location:" + data[i].city + "</p>");
                                             // row.append("<p>" + data[i].city + "</p>");
                                             // row.append("<p>" + data[i].id + "</p>");
