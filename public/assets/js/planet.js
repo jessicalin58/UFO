@@ -348,10 +348,19 @@
                                                 downvoteBtn.attr('data-downcount');
                                             // Add icon to downvote button
                                             var downIcon = $('<i>').text('NOT ALIEN');
-                                                downIcon.addClass('material-icons');
+                                                // downIcon.addClass('material-icons');
                                                 downvoteBtn.append(downIcon);
                                             // Add downvote button to each entry
                                             row.append(downvoteBtn);
+
+                                            // Add vote submit button (to trigger POST and PUT routes)   
+                                            var voteSubmitBtn = $('<button type="submit">');
+                                            // voteSubmitBtn.addClass('glitch');
+                                            voteSubmitBtn.attr('id', 'vote');
+                                            voteSubmitBtn.text('SUBMIT VOTE');
+                                                // var voteIcon = $('<i>').text('SUBMIT VOTE');
+                                                // voteSubmitBtn.append(voteIcon);
+                                            row.append(voteSubmitBtn);
                                             // ====================================================================================
 
                                             $("#ufo-area").append(row);

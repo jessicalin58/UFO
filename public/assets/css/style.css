@@ -1331,3 +1331,8 @@ input.counter {
   width: 30px;
   text-align: center;
 }
+
+button#vote {
+  text-decoration: underline overline #76ff03;
+  font-family: Courier New, Courier, monospace;
+}

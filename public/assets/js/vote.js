@@ -61,3 +61,22 @@ function handleDownvote() {
   $('input').val(--currentCountVal);
   console.log('New count value is: ' + currentCountVal);
 }
+
+
+// ====================================================================================
+// Saving/Updating voted entries to new table
+
+// FUNCTIONS
+function sendVotedEntry() {
+  event.preventDefault();
+  console.log('vote button clicked *woohoo*');
+}
+
+
+
+// PROCESS
+$(function () {
+
+  $(this).on('click', 'button#vote', sendVotedEntry)
+  
+})
