@@ -50,4 +50,22 @@ module.exports = function (app) {
     app.put("/api/ufo", function (req, res) {
 
     });
+
+    // POST route for adding voted-on entries to new table
+    app.post("/api/voted/", function (req, res) {
+        console.log("Logged sighting data: ");
+        console.log(req.body);
+
+        db.VotedEntry.create({
+            // datetime: req.body.datetime,
+            comments: req.body.comments,
+            // city: req.body.city,
+            vote: req.body.vote,
+            mainId: req.body.mainId
+        }).then(function(voteUFO) {
+            res.json(voteUFO);
+        });
+    });
+
+
 };

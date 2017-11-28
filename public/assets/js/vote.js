@@ -67,9 +67,31 @@ function handleDownvote() {
 // Saving/Updating voted entries to new table
 
 // FUNCTIONS
-function sendVotedEntry() {
+function submitVoted() {
   event.preventDefault();
-  console.log('vote button clicked *woohoo*');
+  // console.log('vote button clicked *woohoo*');
+  
+  var votedSighting = {
+    // datetime: req.body.datetime,
+    comments: $('.comments').html(),
+    // city: req.body.city,
+    vote: $('input').val(),
+    mainId: $('input').attr('id')
+    // Does this instead just need to grab the vote value and log an association-key from the original db, then join the 2 tables for the chart??
+  }
+
+  console.log(votedSighting);
+
+  $.post("/api/voted/", votedSighting, function () {
+
+    console.log('Sighting hopefully logged to db...');
+
+    // Have a toast popup and say "sighting logged" then empty div
+    $('#ufo-area').empty();
+
+  });
+
+
 }
 
 
@@ -77,6 +99,7 @@ function sendVotedEntry() {
 // PROCESS
 $(function () {
 
-  $(this).on('click', 'button#vote', sendVotedEntry)
+  $(this).on('click', 'button#vote', submitVoted)
+  // ^^Need way to only allow submission once...
   
 })

@@ -2,26 +2,27 @@ module.exports = function (sequelize, DataTypes) {
   var VotedEntry = sequelize.define('VotedEntry', {
     datetime: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     state: {
       type: DataTypes.STRING,
+      allowNull: true
     },
     country: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     shape: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     duration: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     comments: {
       type: DataTypes.TEXT,
@@ -29,7 +30,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     vote: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
+    },
+    mainId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   }, {
       timestamps: false
