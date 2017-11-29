@@ -12,12 +12,13 @@ function handleUpvote() {
 
   // Grabs id of counter for each entry
   var $counterVal = currentPost.children('input');
+  // 
 
   // Counter value, by id, of each entry
   var currentCountVal = $counterVal[0].value;
   console.log(currentCountVal);
   // Counter id, which relates to entry id, from table
-  var currentCounterId = $counterVal.attr('id');
+  var currentCounterId = $counterVal.attr('data-id');
   console.log(currentCounterId);
 
 // var upcount = $counterVal.val();
@@ -25,6 +26,7 @@ function handleUpvote() {
 
   // Sets new count value by adding 1
   $('input').val(++currentCountVal);
+  
   console.log('New count value is: ' + currentCountVal); 
 }
 
@@ -76,7 +78,7 @@ function submitVoted() {
     comments: $('.comments').html(),
     // city: req.body.city,
     vote: $('input').val(),
-    mainId: $('input').attr('id')
+    mainId: $('input').attr('data-id')
     // Does this instead just need to grab the vote value and log an association-key from the original db, then join the 2 tables for the chart??
   }
 
@@ -91,6 +93,10 @@ function submitVoted() {
 
     // Empty ufo-area div for next entry
     setTimeout(() => {
+      var childDestroy = $('#ufo-area');
+        while (childDestroy.firstChild) {
+          childDestroy.removeChild(childDestroy.firstChild);
+        }
       $('#ufo-area').empty();
     }, 2000);
     

@@ -202,7 +202,16 @@
         }
 
         
-        // ====================================================================================
+// ====================================================================================
+// On-clicks and function triggers for vote buttons
+// ====================================================================================
+
+// Increase value of 'upcount button' on click
+$(document).on('click', 'button.upvote', handleUpvote);
+
+// Increase value of 'downcount button' on click
+$(document).on('click', 'button.downvote', handleDownvote);
+// ====================================================================================
 
         function onMouseDown(event) {
       
@@ -293,14 +302,7 @@
 
                                 // description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
 
-                                // On-clicks and function triggers for vote buttons
-                                // ====================================================================================
-                                // Increase value of 'upcount button' on click
-                                $(this).on('click', 'button.upvote', handleUpvote);
-
-                                // Increase value of 'downcount button' on click
-                                $(this).on('click', 'button.downvote', handleDownvote);
-                                // ====================================================================================
+                                
 
                                 $.get("/api/planet", function (data) {
                                     // Empties div so one entry is viewed at a time
@@ -340,7 +342,7 @@
                                             var counter = $('<input type="number" value=' + data[i].id + ' readonly="true"/>').val(0);
                                                 counter.addClass('counter');
                                                 // counter.attr('id', 'disabled');
-                                                counter.attr('id', data[i].id);
+                                                counter.attr('data-id', data[i].id);
                                             row.append(counter);
 
                                             // Adds not alien (vote down) button
