@@ -1,3 +1,4 @@
 .DS_Store
 .DS_STORES
 node_modules
+public/assets/.DS_Store
