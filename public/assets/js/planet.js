@@ -245,7 +245,7 @@ $(document).on('click', 'button.downvote', handleDownvote);
                                     delay: 1,
                                     ease: Quad.easeInOut,
                                 });
-
+                                info.innerHTML = "<h3>Testimonials</h3>";
                                 // info.innerHTML = " <span>Old Man Larry,</span>";
 
                                 // description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
@@ -500,6 +500,30 @@ $(document).on('click', 'button.downvote', handleDownvote);
             console.log('Down');
         }
         document.addEventListener('mousedown', onMouseDown, false);
+
+        function onDocumentMouseMove(event) {
+
+            raycaster = new THREE.Raycaster();
+            mouse = new THREE.Vector2();
+            mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
+            mouse.y = -(event.clientY / renderer.domElement.height) * 2 + 1;
+            setFromCamera(raycaster, mouse, camera);
+            var intersects = raycaster.intersectObjects(objects);
+
+            if (intersects.length > 0) {
+                // console.log(currentcolor);
+
+                switch (intersects[0].object.geometry.type) {
+                    case 'BoxGeometry':
+                        $('html,body').css('cursor', 'pointer');
+                    // $('html,body').css('cursor', 'url(../img/alien-02.cur)');
+                }
+            }
+            else {
+                $('html,body').css('cursor', 'default');
+            }
+        }
+        document.addEventListener('mousemove', onDocumentMouseMove, false);
 
         function animate() {
             ;

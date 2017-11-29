@@ -1,4 +1,21 @@
- #aliens{
+  #contentTitle{
+   font-family: Nunito;
+   font-size: 40px;
+    position: absolute;
+  top: -80%;
+  pointer-events: none;
+
+ }
+  #aliens{
+   font-family: Nunito;
+   font-size: 50px;
+    position: absolute;
+  top: -80%;
+  pointer-events: none;
+
+ }
+ 
+ /* #aliens{
    font-family: Nunito;
    font-size: 50px;
     position: fixed;
@@ -7,9 +24,9 @@
   left: 50px;
   pointer-events: none;
 
-  padding-left: 10px;
+  padding-left: 10px; */
 
- }
+ 
  .alien-intro{
    font-family: Alegreya;
    font-size: 12px;
@@ -164,6 +181,7 @@ span{
   padding-top: 10px;
 }  */
 button {
+   cursor: pointer;
 
   opacity:0.8;
     /* color: white; */
