@@ -15,7 +15,7 @@ $(document).ready(function () {
 
             for (var i in data) {
                 userid.push("UserID " + data[i].id);
-                duration_time.push(data[i].duration);
+                duration_time.push(data[i].vote);
 
             }
             var chartColors = {

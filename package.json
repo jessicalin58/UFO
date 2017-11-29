@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/jessicalin58/UFO#readme",
   "dependencies": {
+    "async": "^2.6.0",
     "express": "^4.16.2",
-    "mysql": "^2.15.0",
-    "mysql2": "^1.5.0",
-    "sequelize": "^4.22.7",
+    "mysql2": "^1.5.1",
+    "sequelize": "^4.23.2",
     "upvote": "^1.1.1"
   }
 }

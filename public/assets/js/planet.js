@@ -16,6 +16,7 @@
         var earthPivot3;
         var mesh;
         var planetViewed = 0;
+        var ship;
         init();
         animate();
         $(window).on('load', function () {
@@ -114,6 +115,14 @@
                 shading: THREE.FlatShading
             });
 
+            var jsonloader = new THREE.JSONLoader();
+            jsonloader.load("assets/models/ship.json", function (geometry, materials) {
+                for (var i = 0; i < materials.length; i++) {
+                    var m = materials[i]; m.morphTargets = true; console.log(m);
+                }
+                ship = new THREE.Mesh(geometry, new THREE.MultiMaterial(materials)); scene.add(ship);
+            });
+
             sun = new THREE.Mesh(new THREE.BoxGeometry(15, 15,15), pinkMat);
             scene.add(sun);
             objects.push(sun);
@@ -165,10 +174,10 @@
             objects.push(earth3);
 
             // lights
-            light = new THREE.DirectionalLight(0x4f4f4f);
+            light = new THREE.DirectionalLight(0xffffff);
             light.position.set(4, 4, 4);
             scene.add(light);
-            light = new THREE.DirectionalLight(0x4f4f4f);
+            light = new THREE.DirectionalLight(0xffffff);
             light.position.set(-4, -4, -4);
             scene.add(light);
             //render
@@ -207,10 +216,10 @@
 // ====================================================================================
 
 // Increase value of 'upcount button' on click
-$(document).on('click', 'button.upvote', handleUpvote);
+$(document).on('click', 'img.upvote', handleUpvote);
 
 // Increase value of 'downcount button' on click
-$(document).on('click', 'button.downvote', handleDownvote);
+$(document).on('click', 'img.downvote', handleDownvote);
 // ====================================================================================
 
         function onMouseDown(event) {
@@ -327,12 +336,13 @@ $(document).on('click', 'button.downvote', handleDownvote);
                                             // Buttons and vote counter
                                             // ====================================================================================
                                             // Add alien! (vote up) button
-                                            var upvoteBtn = $('<button>').addClass('upvote');
+                                            var upvoteBtn = $("<img src='assets/img/alien.svg'>").addClass('upvote');
                                                 upvoteBtn.attr('data-upcount');
+                                                upvoteBtn.text('ALIEN');
                                             // Add icon to upvote button
-                                            var upIcon = $('<i>').text('ALIEN');
-                                                upIcon.addClass('material-icons');
-                                                upvoteBtn.append(upIcon);
+                                            // var upIcon = $('<i>').text('ALIEN');
+                                            //     upIcon.addClass('material-icons');
+                                            //     upvoteBtn.append(upIcon);
                                             // Add upvote button to each entry
                                             row.append(upvoteBtn);
 
@@ -346,7 +356,7 @@ $(document).on('click', 'button.downvote', handleDownvote);
                                             row.append(counter);
 
                                             // Adds not alien (vote down) button
-                                            var downvoteBtn = $('<button>').addClass('downvote');
+                                            var downvoteBtn = $("<img src='assets/img/not_alien.svg'>").addClass('downvote');
                                                 downvoteBtn.attr('data-downcount');
                                             // Add icon to downvote button
                                             var downIcon = $('<i>').text('NOT ALIEN');
