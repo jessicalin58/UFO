@@ -23,7 +23,8 @@ module.exports = function (app) {
 
         db.UFO.findAll({
             where: {
-                id: Math.round(Math.random() * 100)
+                id: Math.round(Math.random() * 100 + 1)
+                // ^^Added +1 so '0' wouldn't be an option ~laura
             }
         })
             .then(function (dbPost) {
@@ -49,8 +50,8 @@ module.exports = function (app) {
     // PUT route for updating vote count of ufo entry
     // Works with $.put in vote.js
     app.put("/api/planet", function (req, res) {
-        console.log("Logged vote data: ");
-        console.log(req.body);
+        // console.log("Logged vote data: ");
+        // console.log(req.body);
 
         db.UFO.update({
             vote: req.body.vote
@@ -65,8 +66,8 @@ module.exports = function (app) {
 
     // POST route for adding voted-on entries to new table
     app.post("/api/voted/", function (req, res) {
-        console.log("Logged sighting data: ");
-        console.log(req.body);
+        // console.log("Logged sighting data: ");
+        // console.log(req.body);
 
         db.VotedEntry.create({
             // datetime: req.body.datetime,
@@ -78,6 +79,4 @@ module.exports = function (app) {
             res.json(voteUFO);
         });
     });
-
-
 };
