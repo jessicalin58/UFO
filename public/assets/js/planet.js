@@ -304,17 +304,16 @@ $(document).on('click', 'img.downvote', handleDownvote);
 
                                 // description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
 
-                                
-
+    // Renders sighting entries to vote on    
+    // ====================================================================================
     $.get("/api/planet", function (data) {
         // Empties div so one entry is viewed at a time
         $("#ufo-area").empty();
     
-
         if (data.length !== 0) {
 
             for (var i = 0; i < data.length; i++) {
-
+                
                 var row = $("<div>");
                 row.addClass("ufo-sighting");
                 row.attr("id", data[i].id);
@@ -329,12 +328,15 @@ $(document).on('click', 'img.downvote', handleDownvote);
                 // Buttons and vote counter
                 // ====================================================================================
                 // Add alien! (vote up) button
-                var upvoteBtn = $('<button>').addClass('upvote');
+                // var upvoteBtn = $('<button>').addClass('upvote');
+                var upvoteBtn = $("<img src='assets/img/alien.svg'>").addClass('upvote');
                 upvoteBtn.attr('data-upcount');
+
                 // Add icon to upvote button
-                var upIcon = $('<i>').text('ALIEN');
-                upIcon.addClass('material-icons');
-                upvoteBtn.append(upIcon);
+                // var upIcon = $('<i>').text('ALIEN');
+                // upIcon.addClass('material-icons');
+                // upvoteBtn.append(upIcon);
+
                 // Add upvote button to each entry
                 row.append(upvoteBtn);
 
@@ -348,12 +350,15 @@ $(document).on('click', 'img.downvote', handleDownvote);
                 row.append(counter);
 
                 // Adds not alien (vote down) button
-                var downvoteBtn = $('<button>').addClass('downvote');
+                // var downvoteBtn = $('<button>').addClass('downvote');
+                var downvoteBtn = $("<img src='assets/img/not_alien.svg'>").addClass('downvote');
                 downvoteBtn.attr('data-downcount');
+
                 // Add icon to downvote button
-                var downIcon = $('<i>').text('NOT ALIEN');
-                // downIcon.addClass('material-icons');
-                downvoteBtn.append(downIcon);
+                // var downIcon = $('<i>').text('NOT ALIEN');
+                // // downIcon.addClass('material-icons');
+                // downvoteBtn.append(downIcon);
+
                 // Add downvote button to each entry
                 row.append(downvoteBtn);
 
@@ -365,9 +370,9 @@ $(document).on('click', 'img.downvote', handleDownvote);
                 // // var voteIcon = $('<i>').text('SUBMIT VOTE');
                 // // voteSubmitBtn.append(voteIcon);
                 // row.append(voteSubmitBtn);
-                // ====================================================================================
-
+                
                 $("#ufo-area").append(row);
+                // ====================================================================================
 
             }
 

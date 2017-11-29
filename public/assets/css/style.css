@@ -1,4 +1,10 @@
-  #contentTitle{
+  body #container img.upvote,
+body #container img.downvote {
+   height: 80px;
+   width: 80px;
+}
+
+#contentTitle{
    font-family: Nunito;
    font-size: 40px;
     position: absolute;
@@ -251,13 +257,13 @@ p a{
   position: absolute;
 }
 body #container img {
-  position: absolute;
+  /* position: absolute;
   left: 50px;
   z-index: 2;
   width: 2px;
   height: 0px;
   top: 50%;
-  margin-top: -100px;
+  margin-top: -100px; */
 }
 body #container #welcome {
   opacity: 0;
@@ -1341,7 +1347,7 @@ keyframes
 }
 
 /* Style for vote buttons and counter input */
-button.downvote, button.upvote {
+button.downvote, button.upvote, img.upvote, img.downvote {
   margin: 5px;
 }
 
@@ -1351,7 +1357,7 @@ input.counter {
   display: none;
 }
 
-button#vote {
+/* button#vote {
   text-decoration: underline overline #76ff03;
   font-family: Courier New, Courier, monospace;
-}
+} */
