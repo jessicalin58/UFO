@@ -1346,8 +1346,9 @@ button.downvote, button.upvote {
 }
 
 input.counter {
-  width: 30px;
-  text-align: center;
+  /* width: 30px;
+  text-align: center; */
+  display: none;
 }
 
 button#vote {
