@@ -21,13 +21,18 @@ function handleUpvote() {
   var currentCounterId = $counterVal.attr('data-id');
   console.log(currentCounterId);
 
+    // WHEN COUNTER IS NO LONGER ON THE PAGE... NEEDS TO GRAB FROM THE UFOs TABLE....
+    // 
+
 // var upcount = $counterVal.val();
   // $('input').val(++upcount);
 
   // Sets new count value by adding 1
   $('input').val(++currentCountVal);
   
-  console.log('New count value is: ' + currentCountVal); 
+  console.log('New count value is: ' + currentCountVal);
+
+  submitVoted();
 }
 
 // Determines which entry is being downvoted; decreases rating -1
@@ -62,6 +67,8 @@ function handleDownvote() {
   // Sets new count value by subtracting 1
   $('input').val(--currentCountVal);
   console.log('New count value is: ' + currentCountVal);
+
+  submitVoted();
 }
 
 
@@ -140,5 +147,7 @@ $(function () {
 
   $(this).on('click', 'button#vote', submitVoted)
   // ^^Need way to only allow submission once...
+
+  // ^^^Instead switch this to fire with upvote/downvote buttons
   
 })
