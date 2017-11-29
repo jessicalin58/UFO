@@ -24,6 +24,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         state: {
             type: DataTypes.STRING,
+            allowNull: true
 
         },
         country: {
@@ -46,6 +47,10 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
 
         },
+        vote: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        }
     }, {
             timestamps: false
         });
