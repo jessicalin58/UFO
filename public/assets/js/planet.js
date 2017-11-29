@@ -358,13 +358,13 @@ $(document).on('click', 'img.downvote', handleDownvote);
                 row.append(downvoteBtn);
 
                 // Add vote submit button (to trigger POST and PUT routes)   
-                var voteSubmitBtn = $('<button type="submit">');
-                // voteSubmitBtn.addClass('glitch');
-                voteSubmitBtn.attr('id', 'vote');
-                voteSubmitBtn.text('SUBMIT VOTE');
-                // var voteIcon = $('<i>').text('SUBMIT VOTE');
-                // voteSubmitBtn.append(voteIcon);
-                row.append(voteSubmitBtn);
+                // var voteSubmitBtn = $('<button type="submit">');
+                // // voteSubmitBtn.addClass('glitch');
+                // voteSubmitBtn.attr('id', 'vote');
+                // voteSubmitBtn.text('SUBMIT VOTE');
+                // // var voteIcon = $('<i>').text('SUBMIT VOTE');
+                // // voteSubmitBtn.append(voteIcon);
+                // row.append(voteSubmitBtn);
                 // ====================================================================================
 
                 $("#ufo-area").append(row);
