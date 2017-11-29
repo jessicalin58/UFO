@@ -208,9 +208,11 @@
 
 // Increase value of 'upcount button' on click
 $(document).on('click', 'button.upvote', handleUpvote);
+$(document).on('click', 'img.upvote', handleUpvote);
 
 // Increase value of 'downcount button' on click
 $(document).on('click', 'button.downvote', handleDownvote);
+$(document).on('click', 'img.downvote', handleDownvote);
 // ====================================================================================
 
         function onMouseDown(event) {
@@ -304,75 +306,74 @@ $(document).on('click', 'button.downvote', handleDownvote);
 
                                 
 
-                                $.get("/api/planet", function (data) {
-                                    // Empties div so one entry is viewed at a time
-                                    $("#ufo-area").empty();
-                                    // $("#ufo-area").remove();
+    $.get("/api/planet", function (data) {
+        // Empties div so one entry is viewed at a time
+        $("#ufo-area").empty();
+    
 
-                                    if (data.length !== 0) {
+        if (data.length !== 0) {
 
-                                        for (var i = 0; i < data.length; i++) {
+            for (var i = 0; i < data.length; i++) {
 
-                                            var row = $("<div>");
-                                            row.addClass("ufo-sighting");
-                                            row.attr("id", data[i].id);
+                var row = $("<div>");
+                row.addClass("ufo-sighting");
+                row.attr("id", data[i].id);
 
-                                            row.append("<p class='comments'>" + data[i].comments + "</p>");
-                                            // row.append("<p>" + "Date:" + data[i].datetime + " | Location:" + data[i].city + "</p>");
-                                            // row.append("<p>" + data[i].city + "</p>");
-                                            // row.append("<p>" + data[i].id + "</p>");
-                                            //row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
-                                            row.append("<p>Case: " + moment(data[i].datetime).format("YYYY") + " | " + data[i].city + "</p>");
+                row.append("<p class='comments'>" + data[i].comments + "</p>");
+                    // row.append("<p>" + "Date:" + data[i].datetime + " | Location:" + data[i].city + "</p>");
+                    // row.append("<p>" + data[i].city + "</p>");
+                    // row.append("<p>" + data[i].id + "</p>");
+                    //row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+                row.append("<p>Case: " + data[i].datetime + " | " + data[i].city + " " + data[i].state + "</p>");
 
-                                            // Buttons and vote counter
-                                            // ====================================================================================
-                                            // Add alien! (vote up) button
-                                            var upvoteBtn = $('<button>').addClass('upvote');
-                                                upvoteBtn.attr('data-upcount');
-                                            // Add icon to upvote button
-                                            var upIcon = $('<i>').text('ALIEN');
-                                                upIcon.addClass('material-icons');
-                                                upvoteBtn.append(upIcon);
-                                            // Add upvote button to each entry
-                                            row.append(upvoteBtn);
+                // Buttons and vote counter
+                // ====================================================================================
+                // Add alien! (vote up) button
+                var upvoteBtn = $('<button>').addClass('upvote');
+                upvoteBtn.attr('data-upcount');
+                // Add icon to upvote button
+                var upIcon = $('<i>').text('ALIEN');
+                upIcon.addClass('material-icons');
+                upvoteBtn.append(upIcon);
+                // Add upvote button to each entry
+                row.append(upvoteBtn);
 
-                                            // Creates disabled input to act as vote-counter for each entry
-                                            // ****Need to be pulling vote value from db table, not fresh and blank on the page****
-                                            // var counter = $('<input disabled value=' + data[i].id + '>').val(0);
-                                            var counter = $('<input type="number" value=' + data[i].id + ' readonly="true"/>').val(0);
-                                                counter.addClass('counter');
-                                                // counter.attr('id', 'disabled');
-                                                counter.attr('data-id', data[i].id);
-                                            row.append(counter);
+                // Creates read-only input to act as vote-counter for each entry (will hide from user in final)
+                // ****Need to be pulling vote value from db table, not fresh and blank on the page****  ~WORKS!!!!!!
+                var counter = $('<input type="number" value=' + data[i].vote + ' readonly="true"/>').val(data[i].vote);
+                // var counter = $('<input type="number" value=' + data[i].id + ' readonly="true"/>').val(0);
+                counter.addClass('counter');
+                // counter.attr('id', 'disabled');
+                counter.attr('data-id', data[i].id);
+                row.append(counter);
 
-                                            // Adds not alien (vote down) button
-                                            var downvoteBtn = $('<button>').addClass('downvote');
-                                                downvoteBtn.attr('data-downcount');
-                                            // Add icon to downvote button
-                                            var downIcon = $('<i>').text('NOT ALIEN');
-                                                // downIcon.addClass('material-icons');
-                                                downvoteBtn.append(downIcon);
-                                            // Add downvote button to each entry
-                                            row.append(downvoteBtn);
+                // Adds not alien (vote down) button
+                var downvoteBtn = $('<button>').addClass('downvote');
+                downvoteBtn.attr('data-downcount');
+                // Add icon to downvote button
+                var downIcon = $('<i>').text('NOT ALIEN');
+                // downIcon.addClass('material-icons');
+                downvoteBtn.append(downIcon);
+                // Add downvote button to each entry
+                row.append(downvoteBtn);
 
-                                            // Add vote submit button (to trigger POST and PUT routes)   
-                                            var voteSubmitBtn = $('<button type="submit">');
-                                            // voteSubmitBtn.addClass('glitch');
-                                            voteSubmitBtn.attr('id', 'vote');
-                                            voteSubmitBtn.text('SUBMIT VOTE');
-                                                // var voteIcon = $('<i>').text('SUBMIT VOTE');
-                                                // voteSubmitBtn.append(voteIcon);
-                                            row.append(voteSubmitBtn);
-                                            // ====================================================================================
+                // Add vote submit button (to trigger POST and PUT routes)   
+                var voteSubmitBtn = $('<button type="submit">');
+                // voteSubmitBtn.addClass('glitch');
+                voteSubmitBtn.attr('id', 'vote');
+                voteSubmitBtn.text('SUBMIT VOTE');
+                // var voteIcon = $('<i>').text('SUBMIT VOTE');
+                // voteSubmitBtn.append(voteIcon);
+                row.append(voteSubmitBtn);
+                // ====================================================================================
 
-                                            $("#ufo-area").append(row);
-                                            // $("#ufo-area").replaceWith(row);
+                $("#ufo-area").append(row);
 
-                                        }
+            }
 
-                                    }
+        }
 
-                                });
+    });  //Closes $.get route
 
                             }
                             // if (planetViewed == 2 || planetViewed == 3 || planetViewed == 4) {
