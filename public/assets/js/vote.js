@@ -76,23 +76,53 @@ function handleDownvote() {
 // Saving/Updating voted entries to new table
 
 // FUNCTIONS
-function submitVoted() {
-  event.preventDefault();
-  // console.log('vote button clicked *woohoo*');
+// function submitVoted() {
+//   event.preventDefault();
+//   // console.log('vote button clicked *woohoo*');
   
-  var votedSighting = {
-    // datetime: req.body.datetime,
-    comments: $('.comments').html(),
-    // city: req.body.city,
+//   var votedSighting = {
+//     // datetime: req.body.datetime,
+//     comments: $('.comments').html(),
+//     // city: req.body.city,
+//     vote: $('input').val(),
+//     mainId: $('input').attr('data-id')
+//     // Does this instead just need to grab the vote value and log an association-key from the original db, then join the 2 tables for the chart??
+//   }
+
+//   console.log(votedSighting);
+
+//   $.post("/api/voted/", votedSighting, function () {
+
+//     console.log('Sighting vote logged to db!');
+
+//     // Renders 'toast' popup
+//     snackbar(); 
+
+//     // Empty ufo-area div for next entry
+//     setTimeout(() => {
+//       var childDestroy = $('#ufo-area');
+//         while (childDestroy.firstChild) {
+//           childDestroy.removeChild(childDestroy.firstChild);
+//         }
+//       $('#ufo-area').empty();
+//     }, 2000);
+    
+//   });
+// }
+
+function submitVoted(voteData) {
+  // Captures vote and id of entry
+  var voteData = {
     vote: $('input').val(),
-    mainId: $('input').attr('data-id')
-    // Does this instead just need to grab the vote value and log an association-key from the original db, then join the 2 tables for the chart??
+    id: $('input').attr('data-id')
   }
 
-  console.log(votedSighting);
-
-  $.post("/api/voted/", votedSighting, function () {
-
+  $.ajax({
+    method: "PUT",
+    url: "/api/planet",
+    data: voteData
+  }).done(function() {
+    console.log(voteData);
     console.log('Sighting vote logged to db!');
 
     // Renders 'toast' popup
@@ -106,25 +136,15 @@ function submitVoted() {
         }
       $('#ufo-area').empty();
     }, 2000);
-    
   });
 }
 
+
+
+
+
 // ====================================================================================
 // Special effects!
-
-// Have a toast popup and say "sighting logged" then empty div
-function snackbar() {
-  // Get the snackbar DIV
-  var x = document.getElementById("snackbar")
-  // Add the "show" class to DIV
-  x.className = "show";
-
-  typeWriter();
-
-  // After 3 seconds, remove the show class from DIV
-  setTimeout(function () { x.className = x.className.replace("show", ""); }, 2000);
-}
 
 // Typewriter effect for snackbar
 var i = 0;
@@ -139,6 +159,18 @@ function typeWriter() {
   }
 }
 
+// Have a toast popup and say "sighting logged" then empty div
+function snackbar() {
+  // Get the snackbar DIV
+  var x = document.getElementById("snackbar")
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  typeWriter();
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function () { x.className = x.className.replace("show", ""); }, 2000);
+}
 
 
 // ====================================================================================

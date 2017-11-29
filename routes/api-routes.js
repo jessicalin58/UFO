@@ -46,9 +46,21 @@ module.exports = function (app) {
 
     });
 
-    // PUT route for updating ufo. The updated todo will be available in req.body
-    app.put("/api/ufo", function (req, res) {
+    // PUT route for updating vote count of ufo entry
+    // Works with $.put in vote.js
+    app.put("/api/planet", function (req, res) {
+        console.log("Logged vote data: ");
+        console.log(req.body);
 
+        db.UFO.update({
+            vote: req.body.vote
+        }, {
+            where: {
+                id: req.body.id
+            }
+        }).then(function(votedUFO) {
+            res.json(votedUFO);
+        });
     });
 
     // POST route for adding voted-on entries to new table
