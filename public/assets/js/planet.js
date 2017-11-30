@@ -256,29 +256,70 @@ $(document).on('click', 'img.downvote', handleDownvote);
 
                                 // description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
 
-                                // Duplicate api call, not needed?  ~Laura
-                                // $.get("/api/planet", function (data) {
+                                
+                                $.get("/api/planet", function (data) {
+                                    // console.log('first GET called');
+                                    if (data.length !== 0) {
 
-                                //     if (data.length !== 0) {
+                                        for (var i = 0; i < data.length; i++) {
 
-                                //         for (var i = 0; i < data.length; i++) {
+                                            var row = $("<div>");
+                                            row.addClass("ufo-sighting");
+                                            row.attr("id", data[i].id);
 
-                                //             var row = $("<div>");
-                                //             row.addClass("ufo-area");
+                                            row.append("<p class='comments'>" + data[i].comments + "</p>");
+                                            row.append("<p>Case: " + data[i].datetime + " | " + data[i].city + " " + data[i].state + "</p>");
 
-                                //             row.append("<p>" + data[i].comments + "</p>");
-                                //             row.append("<p>" + "Date:" + data[i].datetime + " | Location:"+ data[i].city + "</p>");
-                                //             // row.append("<p>" + data[i].city + "</p>");
-                                //             // row.append("<p>" + data[i].id + "</p>");
-                                //             //row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+                                            // Buttons and vote counter
+                                            // ====================================================================================
+                                            // Add alien! (vote up) button
+                                            // var upvoteBtn = $('<button>').addClass('upvote');
+                                            var upvoteBtn = $("<img src='assets/img/alien.svg'>").addClass('upvote');
 
-                                //             $("#ufo-area").prepend(row);
+                                            upvoteBtn.attr('data-upcount');
+                                            // upvoteBtn.attr('id', 'alien_nofill');
 
-                                //         }
+                                            // Add upvote button to each entry
+                                            row.append(upvoteBtn);
 
-                                //     }
+                                            // Creates read-only input to act as vote-counter for each entry (will hide from user in final)
+                                            // ****Need to be pulling vote value from db table, not fresh and blank on the page****  ~WORKS!!!!!!
+                                            var counter = $('<input type="number" value=' + data[i].vote + ' readonly="true"/>').val(data[i].vote);
+                                            // var counter = $('<input type="number" value=' + data[i].id + ' readonly="true"/>').val(0);
+                                            counter.addClass('counter');
+                                            // counter.attr('id', 'disabled');
+                                            counter.attr('data-id', data[i].id);
+                                            row.append(counter);
 
-                                // });
+                                            // Adds not alien (vote down) button
+                                            // var downvoteBtn = $('<button>').addClass('downvote');
+                                            var downvoteBtn = $("<img src='assets/img/not_alien.svg'>").addClass('downvote');
+                                            downvoteBtn.attr('data-downcount');
+
+                                            // Add icon to downvote button
+                                            // var downIcon = $('<i>').text('NOT ALIEN');
+                                            // // downIcon.addClass('material-icons');
+                                            // downvoteBtn.append(downIcon);
+
+                                            // Add downvote button to each entry
+                                            row.append(downvoteBtn);
+
+                                            // Add vote submit button (to trigger POST and PUT routes)   
+                                            // var voteSubmitBtn = $('<button type="submit">');
+                                            // // voteSubmitBtn.addClass('glitch');
+                                            // voteSubmitBtn.attr('id', 'vote');
+                                            // voteSubmitBtn.text('SUBMIT VOTE');
+                                            // // var voteIcon = $('<i>').text('SUBMIT VOTE');
+                                            // // voteSubmitBtn.append(voteIcon);
+                                            // row.append(voteSubmitBtn);
+
+                                            $("#ufo-area").append(row);
+
+                                        }
+
+                                    }
+
+                                });
 
                                 
 
@@ -323,10 +364,6 @@ $(document).on('click', 'img.downvote', handleDownvote);
                 row.attr("id", data[i].id);
 
                 row.append("<p class='comments'>" + data[i].comments + "</p>");
-                    // row.append("<p>" + "Date:" + data[i].datetime + " | Location:" + data[i].city + "</p>");
-                    // row.append("<p>" + data[i].city + "</p>");
-                    // row.append("<p>" + data[i].id + "</p>");
-                    //row.append("<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
                 row.append("<p>Case: " + data[i].datetime + " | " + data[i].city + " " + data[i].state + "</p>");
 
                 // Buttons and vote counter
