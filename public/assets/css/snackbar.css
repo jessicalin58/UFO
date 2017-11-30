@@ -1,235 +1,229 @@
-/* Snackbar glitch effect :-) */
+/* Buttons glitch effect :-) */
+/*
+  (IMAGE) PARAMS
+  =================
+  @mixin imgGlitch($name, $intensity, $width, $height, $top, $left)
+  =================
+  1. Namespace
+  2. Intensity
+  3. Width (px)
+  4. Height (px)
+  5. Top (px, abs pos)
+  6. Left (px, abs pos)
+*/
 
-.snack-glitch {
-  font-size: 100px;
-  color: white;
-  position: relative;
-}
-
-@keyframes snack-glitch-anim-1 {
+  @keyframes ufo-sighting-anim-1 {
   0% {
-    clip: rect(28px, 450px, 4px, 0);
+    clip: rect(80px, 100px, 14px, 0);
   }
-  5.88235% {
-    clip: rect(70px, 450px, 79px, 0);
+  6.66667% {
+    clip: rect(48px, 100px, 63px, 0);
   }
-  11.76471% {
-    clip: rect(8px, 450px, 74px, 0);
+  13.33333% {
+    clip: rect(1px, 100px, 19px, 0);
   }
-  17.64706% {
-    clip: rect(42px, 450px, 28px, 0);
+  20% {
+    clip: rect(52px, 100px, 71px, 0);
   }
-  23.52941% {
-    clip: rect(79px, 450px, 77px, 0);
+  26.66667% {
+    clip: rect(17px, 100px, 37px, 0);
   }
-  29.41176% {
-    clip: rect(73px, 450px, 76px, 0);
+  33.33333% {
+    clip: rect(45px, 100px, 81px, 0);
   }
-  35.29412% {
-    clip: rect(52px, 450px, 60px, 0);
+  40% {
+    clip: rect(76px, 100px, 58px, 0);
   }
-  41.17647% {
-    clip: rect(35px, 450px, 21px, 0);
+  46.66667% {
+    clip: rect(52px, 100px, 98px, 0);
   }
-  47.05882% {
-    clip: rect(8px, 450px, 26px, 0);
+  53.33333% {
+    clip: rect(40px, 100px, 100px, 0);
   }
-  52.94118% {
-    clip: rect(56px, 450px, 21px, 0);
+  60% {
+    clip: rect(21px, 100px, 45px, 0);
   }
-  58.82353% {
-    clip: rect(6px, 450px, 36px, 0);
+  66.66667% {
+    clip: rect(73px, 100px, 64px, 0);
   }
-  64.70588% {
-    clip: rect(95px, 450px, 28px, 0);
+  73.33333% {
+    clip: rect(95px, 100px, 57px, 0);
   }
-  70.58824% {
-    clip: rect(28px, 450px, 32px, 0);
+  80% {
+    clip: rect(53px, 100px, 22px, 0);
   }
-  76.47059% {
-    clip: rect(4px, 450px, 104px, 0);
+  86.66667% {
+    clip: rect(46px, 100px, 15px, 0);
   }
-  82.35294% {
-    clip: rect(83px, 450px, 112px, 0);
-  }
-  88.23529% {
-    clip: rect(22px, 450px, 87px, 0);
-  }
-  94.11765% {
-    clip: rect(62px, 450px, 83px, 0);
+  93.33333% {
+    clip: rect(18px, 100px, 56px, 0);
   }
   100% {
-    clip: rect(50px, 450px, 27px, 0);
+    clip: rect(40px, 100px, 92px, 0);
   }
 }
 
-@keyframes snack-glitch-anim-2 {
+  @keyframes ufo-sighting-anim-2 {
   0% {
-    clip: rect(18px, 450px, 12px, 0);
+    clip: rect(16px, 100px, 10px, 0);
   }
-  5.88235% {
-    clip: rect(77px, 450px, 5px, 0);
+  6.66667% {
+    clip: rect(49px, 100px, 69px, 0);
   }
-  11.76471% {
-    clip: rect(37px, 450px, 4px, 0);
+  13.33333% {
+    clip: rect(63px, 100px, 5px, 0);
   }
-  17.64706% {
-    clip: rect(11px, 450px, 82px, 0);
+  20% {
+    clip: rect(74px, 100px, 99px, 0);
   }
-  23.52941% {
-    clip: rect(36px, 450px, 61px, 0);
+  26.66667% {
+    clip: rect(44px, 100px, 79px, 0);
   }
-  29.41176% {
-    clip: rect(82px, 450px, 51px, 0);
+  33.33333% {
+    clip: rect(49px, 100px, 23px, 0);
   }
-  35.29412% {
-    clip: rect(19px, 450px, 85px, 0);
+  40% {
+    clip: rect(55px, 100px, 22px, 0);
   }
-  41.17647% {
-    clip: rect(91px, 450px, 57px, 0);
+  46.66667% {
+    clip: rect(46px, 100px, 11px, 0);
   }
-  47.05882% {
-    clip: rect(74px, 450px, 20px, 0);
+  53.33333% {
+    clip: rect(98px, 100px, 35px, 0);
   }
-  52.94118% {
-    clip: rect(75px, 450px, 76px, 0);
+  60% {
+    clip: rect(68px, 100px, 3px, 0);
   }
-  58.82353% {
-    clip: rect(20px, 450px, 18px, 0);
+  66.66667% {
+    clip: rect(9px, 100px, 1px, 0);
   }
-  64.70588% {
-    clip: rect(72px, 450px, 88px, 0);
+  73.33333% {
+    clip: rect(97px, 100px, 31px, 0);
   }
-  70.58824% {
-    clip: rect(51px, 450px, 100px, 0);
+  80% {
+    clip: rect(55px, 100px, 59px, 0);
   }
-  76.47059% {
-    clip: rect(83px, 450px, 100px, 0);
+  86.66667% {
+    clip: rect(81px, 100px, 82px, 0);
   }
-  82.35294% {
-    clip: rect(2px, 450px, 7px, 0);
-  }
-  88.23529% {
-    clip: rect(115px, 450px, 37px, 0);
-  }
-  94.11765% {
-    clip: rect(42px, 450px, 63px, 0);
+  93.33333% {
+    clip: rect(17px, 100px, 21px, 0);
   }
   100% {
-    clip: rect(63px, 450px, 14px, 0);
+    clip: rect(100px, 100px, 75px, 0);
   }
 }
 
-.snack-glitch:before,
-.snack-glitch:after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  /* background: black; */
+  .ufo-sighting>img.upvote {
+    /* z-index: 3; */
+  /* position: absolute;
+  top: 200px;
+  left: 75px; */
+}
+
+  .ufo-sighting>img.downvote {
+    
+  }
+
+.ufo-sighting>img:nth-child(2),
+  .ufo-sighting>img:nth-child(3) {
   clip: rect(0, 0, 0, 0);
 }
 
-.snack-glitch:after {
-  left: 2px;
-  text-shadow: -1px 0 red;
-  animation: snack-glitch-anim-1 2s infinite linear alternate-reverse;
+  .ufo-sighting>img:nth-child(2) {
+    /* z-index: 2; */
+  left: 77px;
+  animation: example-three-anim-1 2s infinite linear alternate-reverse;
 }
 
-.snack-glitch:before {
-  left: -2px;
-  text-shadow: 2px 0 blue;
-  animation: snack-glitch-anim-2 3s infinite linear alternate-reverse;
+.ufo-sighting>img:nth-child(3) {
+  /* z-index: 1; */
+  left: 73px;
+  animation: example-three-anim-2 3s infinite linear alternate-reverse;
 }
- 
- 
- 
- /* The snackbar - position it at the bottom and in the middle of the screen */
-
- #snackbar {
-   visibility: hidden;
-   /* Hidden by default. Visible on click */
-   min-width: 250px;
-   /* Set a default minimum width */
-   margin-left: -125px;
-   /* Divide value of min-width by 2 */
-   background-color: #2b3d3a;
-   /* Black background color */
-   color: #76ff03;
-   /* Text color */
-   font-family: Courier New, Courier, monospace;
-   /* Font */
-   text-align: center;
-   /* Centered text */
-   border-radius: 2px;
-   /* Rounded borders */
-   padding: 16px;
-   /* Padding */
-   position: fixed;
-   /* Sit on top of the screen */
-   z-index: 1;
-   /* Add a z-index if needed */
-   left: 50%;
-   /* Center the snackbar */
-   bottom: 30px;
-   /* 30px from the bottom */
- }
- /* Show the snackbar when clicking on a button (class added with JavaScript) */
-
- #snackbar.show {
-   visibility: visible;
-   /* Show the snackbar */
-   /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-However, delay the fade out process for 2.5 seconds */
-   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-   animation: fadein 0.5s, fadeout 0.5s 2.5s;
- }
- /* Animations to fade the snackbar in and out */
-
- @-webkit-keyframes fadein {
-   from {
-     bottom: 0;
-     opacity: 0;
-   }
-   to {
-     bottom: 30px;
-     opacity: 1;
-   }
- }
-
- @keyframes fadein {
-   from {
-     bottom: 0;
-     opacity: 0;
-   }
-   to {
-     bottom: 30px;
-     opacity: 1;
-   }
- }
-
- @-webkit-keyframes fadeout {
-   from {
-     bottom: 30px;
-     opacity: 1;
-   }
-   to {
-     bottom: 0;
-     opacity: 0;
-   }
- }
-
- @keyframes fadeout {
-   from {
-     bottom: 30px;
-     opacity: 1;
-   }
-   to {
-     bottom: 0;
-     opacity: 0;
-   }
- }
-
 
  
+ 
+ 
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  visibility: hidden;
+  /* Hidden by default. Visible on click */
+  min-width: 250px;
+  /* Set a default minimum width */
+  margin-left: -125px;
+  /* Divide value of min-width by 2 */
+  background-color: #2b3d3a;
+  /* Black background color */
+  color: #76ff03;
+  /* Text color */
+  font-family: Courier New, Courier, monospace;
+  /* Font */
+  text-align: center;
+  /* Centered text */
+  border-radius: 2px;
+  /* Rounded borders */
+  padding: 16px;
+  /* Padding */
+  position: fixed;
+  /* Sit on top of the screen */
+  z-index: 1;
+  /* Add a z-index if needed */
+  left: 50%;
+  /* Center the snackbar */
+  bottom: 30px;
+  /* 30px from the bottom */
+}
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible;
+  /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

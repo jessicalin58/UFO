@@ -372,18 +372,20 @@ $(document).on('click', 'img.downvote', handleDownvote);
                 // var upvoteBtn = $('<button>').addClass('upvote');
                 var upvoteBtn = $("<img src='assets/img/alien.svg'>").addClass('upvote');
 
+                // var upvoteBtn2 = $("<img src='assets/img/alien.svg'>").addClass('upvote');
+                // var upvoteBtn3 = $("<img src='assets/img/alien.svg'>").addClass('upvote');
+
                 // var upvoteBtn = $('<object type="image/svg+xml" data="assets/img/alien_nofill.svg">').addClass('upvote');
 
                 upvoteBtn.attr('data-upcount');
                 // upvoteBtn.attr('id', 'alien_nofill');
 
-                // Add <use> to upvote button****trying to work with svg
-                // var upIcon = $('<use>').attr('xlink: href = "#alien_white"');
-                // upIcon.addClass('material-icons');
-                // upvoteBtn.append(upIcon);
-
                 // Add upvote button to each entry
                 row.append(upvoteBtn);
+
+                // row.append(upvoteBtn);
+                // row.append(upvoteBtn2);
+                // row.append(upvoteBtn3);
 
                 // Creates read-only input to act as vote-counter for each entry (will hide from user in final)
                 // ****Need to be pulling vote value from db table, not fresh and blank on the page****  ~WORKS!!!!!!
@@ -398,11 +400,6 @@ $(document).on('click', 'img.downvote', handleDownvote);
                 // var downvoteBtn = $('<button>').addClass('downvote');
                 var downvoteBtn = $("<img src='assets/img/not_alien.svg'>").addClass('downvote');
                 downvoteBtn.attr('data-downcount');
-
-                // Add icon to downvote button
-                // var downIcon = $('<i>').text('NOT ALIEN');
-                // // downIcon.addClass('material-icons');
-                // downvoteBtn.append(downIcon);
 
                 // Add downvote button to each entry
                 row.append(downvoteBtn);
