@@ -1,3 +1,38 @@
+ .social {
+   margin-left: 85%;
+   opacity: 0.5;
+   overflow: hidden;
+ }
+ #off {
+     padding-left: 35px;
+    position: absolute;
+ }
+ a.nav {
+   font-family: 'Source Sans Pro', serif;
+   display: block;
+   position: fixed;
+   height: 40vh;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-position: center;
+   background-size: cover;
+   text-decoration: none;
+   color: #fff;
+   z-index: 99;
+   outline: none;
+ }
+
+ a.nav.next {
+   -webkit-clip-path: circle(40px at 97% 50%);
+ }
+
+ a.nav.prev {
+   -webkit-clip-path: circle(40px at 3% 50%);
+ }
+
+ 
  body #container img {
     height: 60px;
     width: 60px;
@@ -9,6 +44,24 @@
   top: -80%;
   pointer-events: none;
 
+ }
+ #aliens_chart2 {
+   padding: 5px;
+  width: 350px;
+   padding-left: 10px;
+   position: absolute;
+   top: 75%;
+   margin-top: -65px;
+   left: 50px;
+ }
+ #aliens_chart{
+   font-family: Nunito;
+   font-size: 30px;
+    padding-left: 10px;
+    position: absolute;
+    top: 70%;
+    margin-top: -65px;
+    left: 50px;
  }
   #aliens{
    font-family: Nunito;
@@ -55,17 +108,23 @@
 }
 
  .chart-container {
-   margin-top:30%;
+   width: 700px;
+   height: 700px;
+   overflow: scroll;
+   margin-left:60%;
+   margin-top:20%;
+   /* overflow: auto; */
+   /* margin-top:30%;
    color:lime;
   width: 700px;
   right:0;
   height: auto;
-  position: absolute;
+  position: absolute; */
         }
 .testimonial {
   bottom:0;
   position: fixed;
-    text-align: center;
+    /* text-align: center; */
     width: -webkit-fill-available;
        color:white;
   font-family:Helvetica;

@@ -35,9 +35,9 @@ module.exports = function (app) {
     // POST route for saving a ufo click. You can create a todo using the data on req.body
     app.get("/api/chart", function (req, res) {
 
-        db.VotedEntry.findAll({})
-            .then(function (voteUFO) {
-                res.json(voteUFO);
+        db.UFO.findAll({})
+            .then(function (dbPost) {
+                res.json(dbPost);
             });
     });
 

@@ -3,6 +3,17 @@ var ctx = document.getElementById("myChart").getContext("2d");
 var ctx = $("#myChart");
 var ctx = "myChart";
 
+var ctx2 = document.getElementById("myChart2");
+var ctx2 = document.getElementById("myChart2").getContext("2d");
+var ctx2 = $("#myChart2");
+var ctx2 = "myChart2";
+
+
+var ctx3 = document.getElementById("myChart3");
+var ctx3 = document.getElementById("myChart3").getContext("2d");
+var ctx3 = $("#myChart3");
+var ctx3 = "myChart3";
+
 $(document).ready(function () {
     $.ajax({
         url: "/api/chart",
@@ -11,11 +22,18 @@ $(document).ready(function () {
             console.log(data);
 
             var userid = [];
-            var duration_time = [];
+            var vote_number = [];
+            var datetime_data = [];
+            var duration_data = [];
+            var state_data = [];
 
             for (var i in data) {
                 userid.push("UserID " + data[i].id);
-                duration_time.push(data[i].vote);
+                vote_number.push(data[i].vote);
+                datetime_data.push(data[i].datetime);
+                duration_data.push(data[i].duration);
+                state_data.push(data[i].state);
+
 
             }
             var chartColors = {
@@ -29,8 +47,42 @@ $(document).ready(function () {
                 lime: 'rgb(127,255,0)'
             };
 
-            var chartdata = {
-                labels: userid,
+            var votedata = {
+                labels: state_data,
+                datasets: [
+                    {
+                        label: "Vote",
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: "rgba(59, 89, 152, 0.75)",
+                        borderColor: "rgba(59, 89, 152, 1)",
+                        pointHoverBackgroundColor: "rgba(59, 89, 152, 1)",
+                        pointHoverBorderColor: "rgba(59, 89, 152, 1)",
+                        data: vote_number
+                    },
+                ]
+            };
+
+
+            var datetimedata = {
+                labels: state_data,
+                datasets: [
+                    {
+                        label: "Datetime",
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: "rgba(29, 202, 255, 0.75)",
+                        borderColor: "rgba(29, 202, 255, 1)",
+                        pointHoverBackgroundColor: "rgba(59, 89, 152, 1)",
+                        pointHoverBorderColor: "rgba(59, 89, 152, 1)",
+                        data: datetime_data
+                    }
+
+                ]
+            };
+
+            var durationdata = {
+                labels: state_data,
                 datasets: [
                     {
                         label: "Duration",
@@ -40,16 +92,40 @@ $(document).ready(function () {
                         borderColor: "rgba(59, 89, 152, 1)",
                         pointHoverBackgroundColor: "rgba(59, 89, 152, 1)",
                         pointHoverBorderColor: "rgba(59, 89, 152, 1)",
-                        data: duration_time
-                    }
+                        data: duration_data
+                    },
                 ]
             };
 
+            var options = {
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            offsetGridLines: true
+                        }
+                    }]
+                }
+            }
             var ctx = $("#myChart");
 
-            var LineGraph = new Chart(ctx, {
+            var myBarChart = new Chart(ctx3, {
+                type: 'bar',
+                data: durationdata,
+                options: {
+                    scales: {
+                        xAxes: [{
+                            stacked: true
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+            });
+
+            var LineGraph = new Chart(ctx2, {
                 type: 'line',
-                data: chartdata,
+                data: votedata,
                 options: {
                     legend: {
                         labels: {
@@ -66,6 +142,45 @@ $(document).ready(function () {
                             },
                             scaleLabel: {
                               
+                                display: true,
+                                // labelString: 'Month'
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            gridLines: {
+                                color: "#7fff00",
+                                display: false
+                            },
+                            scaleLabel: {
+                                color: "#7fff00",
+                                display: true,
+                                // labelString: 'Value'
+                            }
+                        }]
+                    }
+                }
+            });
+
+            var LineGraph = new Chart(ctx, {
+                type: 'line',
+                data: datetimedata,
+                options: {
+                    legend: {
+                        labels: {
+                            fontColor: "#7fff00"
+
+                        }
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            gridLines: {
+                                color: "#7fff00",
+                                display: false
+                            },
+                            scaleLabel: {
+
                                 display: true,
                                 // labelString: 'Month'
                             }

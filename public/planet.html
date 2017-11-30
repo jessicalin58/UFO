@@ -13,15 +13,48 @@
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/snackbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .fa {
+            padding: 2px;
+            font-size: 30px;
+            width: 20px;
+            text-align: center;
+            text-decoration: none;
+            margin: 3px;
+        }
+    
+        .fa:hover {
+            opacity: 0.7;
+        }
+    
+        .fa-facebook {
+            background: transparent;
+            color: white;
+        }
+    
+        .fa-twitter {
+            background: transparent;
+            color: white;
+        }
+
+          .fa-github {
+            background: transparent;
+            color: white;
+        }
+    
+       
+    </style>
 
 </head>
 
 <body>
 
+   
+    <!-- <div id="barba-wrapper"> -->
+
     <header>
-        <nav id="logo" class="glitch" data-text="U30 CATCHER">U30 CATCHER</nav>
-        <!-- <div class="glitch" data-text="GLITCH">GLITCH</div> -->
-        
+        <nav id="logo" class="glitch" data-text="U30 CATCHER">U30 CATCHER</nav>        
 	<nav class="cd-stretchy-nav">
 		<a class="cd-nav-trigger" href="#0">
 			Menu
@@ -39,7 +72,7 @@
 		<span aria-hidden="true" class="stretchy-nav-bg"></span>
 	</nav>
 </header>
-</div>
+
 
 
     <div id="container">
@@ -74,15 +107,12 @@
            
         <div class="description">
             <div id="ufo-area"></div>
-            <!-- <div id="ufo-area"></div>
-            <button>ALIEN!</button>
-            <button>Hm...not alien...</button> -->
         </div>
     </div>
 
-    <div class="chart-container">
+    <!-- <div class="chart-container">
         <canvas id="myChart"></canvas>
-    </div>
+    </div> -->
 
 
    </div>
@@ -90,17 +120,24 @@
     <div class="testimonial">
     <div class="snack-glitch" id="snackbar" data-text="Entry vote logged..."></div>
         <div id="credits"></div>
-        <div id="social"></div>
-        <!-- <button onclick="playAud()" type="button">sound</button> -->
+       
+
         <button onclick="togglePlay()" type="button" id="off">SOUND</button>
-        <!-- <div id="number-testimonial">03_</div>
-        <div id="next-text">TOTAL VIEWED</div> -->
+        <div class="social">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-github"></a>
+        </div>
+        <!-- <div class="barba-container">
+             <a class="nav next" href="http://localhost:8080/chart" style="background-image: url(&quot;assets/img/cow.jpg&quot;); clip-path: circle(40px at 3% 50%);"></a>
+            <a class="nav next" href="http://localhost:8080/chart" style="background-image: url(&quot;assets/img/cow.jpg&quot;); clip-path: circle(40px at 3% 50%);"></a>
+        </div> -->
     </div>
 
             <!-- Audio unactivated for now -->
-                        <audio autoplay loop id="myAudio">
+                        <!-- <audio autoplay loop id="myAudio">
                                         <source src="/assets/music/Alien.m4a">
-                                    </audio>
+                                    </audio> -->
 
             <!-- The Modal -->
             <div id="myModal" class="modal">
@@ -125,6 +162,10 @@
                         </div>
                         </div>
                 </div>
+                </div>
+
+                <!-- End of barba -->
+                <!-- </div> -->
 
 
 
@@ -144,12 +185,45 @@
 
     <script src="assets/js/modernizr.js"></script> <!-- Modernizr -->
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     
-    <script type="text/javascript" src="assets/js/chart.js"></script>
+    <script type="text/javascript" src="assets/js/chart.js"></script> -->
+<!-- 
+
+    <script src="assets/js/barba.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/js/nextprev.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.1/TweenMax.min.js"></script> -->
+
+    <script src='https://unpkg.com/nprogress@0.2.0/nprogress.js'></script>
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css">
+
+  
+
+<script>
+    
+
+    // Show the progress bar 
+    NProgress.start();
+      NProgress.done();
+
+    // // Increase randomly
+    // var interval = setInterval(function () { NProgress.inc(); }, 1000);
+
+    // // Trigger finish when page fully loaded
+    // jQuery(window).load(function () {
+    //     clearInterval(interval);
+    //     NProgress.done();
+    // });
+
+    // // Trigger bar when exiting the page
+    // jQuery(window).unload(function () {
+    //     NProgress.start();
+    // });
+
+</script>
 
 
 

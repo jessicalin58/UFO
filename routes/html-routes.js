@@ -26,8 +26,8 @@ module.exports = function (app) {
 
     // all route loads the all.html page,
     // where all characters in the db are displayed
-    app.get("/all", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/all.html"));
+    app.get("/chart", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/chart.html"));
     });
 
 };
