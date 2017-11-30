@@ -1,3 +1,149 @@
+.gd-glitch {
+  font-size: 18px;
+  color: white;
+  position: relative;
+}
+
+  @keyframes gd-glitch-anim-1 {
+  0% {
+    clip: rect(72px, 450px, 53px, 0);
+  }
+  5.88235% {
+    clip: rect(6px, 450px, 98px, 0);
+  }
+  11.76471% {
+    clip: rect(41px, 450px, 94px, 0);
+  }
+  17.64706% {
+    clip: rect(91px, 450px, 3px, 0);
+  }
+  23.52941% {
+    clip: rect(32px, 450px, 84px, 0);
+  }
+  29.41176% {
+    clip: rect(63px, 450px, 46px, 0);
+  }
+  35.29412% {
+    clip: rect(56px, 450px, 65px, 0);
+  }
+  41.17647% {
+    clip: rect(96px, 450px, 101px, 0);
+  }
+  47.05882% {
+    clip: rect(89px, 450px, 7px, 0);
+  }
+  52.94118% {
+    clip: rect(39px, 450px, 69px, 0);
+  }
+  58.82353% {
+    clip: rect(55px, 450px, 73px, 0);
+  }
+  64.70588% {
+    clip: rect(41px, 450px, 98px, 0);
+  }
+  70.58824% {
+    clip: rect(38px, 450px, 1px, 0);
+  }
+  76.47059% {
+    clip: rect(115px, 450px, 33px, 0);
+  }
+  82.35294% {
+    clip: rect(7px, 450px, 9px, 0);
+  }
+  88.23529% {
+    clip: rect(27px, 450px, 18px, 0);
+  }
+  94.11765% {
+    clip: rect(98px, 450px, 13px, 0);
+  }
+  100% {
+    clip: rect(107px, 450px, 107px, 0);
+  }
+}
+
+  @keyframes gd-glitch-anim-2 {
+  0% {
+    clip: rect(33px, 450px, 43px, 0);
+  }
+  5.88235% {
+    clip: rect(107px, 450px, 56px, 0);
+  }
+  11.76471% {
+    clip: rect(51px, 450px, 69px, 0);
+  }
+  17.64706% {
+    clip: rect(26px, 450px, 51px, 0);
+  }
+  23.52941% {
+    clip: rect(75px, 450px, 52px, 0);
+  }
+  29.41176% {
+    clip: rect(112px, 450px, 108px, 0);
+  }
+  35.29412% {
+    clip: rect(78px, 450px, 73px, 0);
+  }
+  41.17647% {
+    clip: rect(39px, 450px, 3px, 0);
+  }
+  47.05882% {
+    clip: rect(93px, 450px, 23px, 0);
+  }
+  52.94118% {
+    clip: rect(7px, 450px, 93px, 0);
+  }
+  58.82353% {
+    clip: rect(14px, 450px, 13px, 0);
+  }
+  64.70588% {
+    clip: rect(6px, 450px, 21px, 0);
+  }
+  70.58824% {
+    clip: rect(20px, 450px, 16px, 0);
+  }
+  76.47059% {
+    clip: rect(98px, 450px, 88px, 0);
+  }
+  82.35294% {
+    clip: rect(102px, 450px, 69px, 0);
+  }
+  88.23529% {
+    clip: rect(51px, 450px, 28px, 0);
+  }
+  94.11765% {
+    clip: rect(44px, 450px, 62px, 0);
+  }
+  100% {
+    clip: rect(64px, 450px, 110px, 0);
+  }
+}
+
+.gd-glitch:before,
+  .gd-glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  clip: rect(0, 0, 0, 0);
+}
+
+  .gd-glitch:after {
+  left: 2px;
+  text-shadow: -1px 0 red;
+  animation: gd-glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+  .gd-glitch:before {
+  left: -2px;
+  text-shadow: 2px 0 blue;
+  animation: gd-glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+
+
+
 /* Buttons glitch effect :-) */
 /*
   (IMAGE) PARAMS

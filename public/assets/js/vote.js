@@ -123,6 +123,16 @@ function submitVoted(voteData) {
           childDestroy.removeChild(childDestroy.firstChild);
         }
       $('#ufo-area').empty();
+
+      // Render "click cube to view another entry"
+      $('#subtitle').show();
+      // $('#subtitle').html('<p>C:\ Click cube to rate more reports</p>').addClass('gd-glitch');
+
+      var message = $('<p>Click cube to rate more reports</p>').addClass('gd-glitch');
+      message.attr('data-text', 'Click cube to rate more reports');
+
+      $('#subtitle').append(message);
+
     }, 2000);
   });
 }

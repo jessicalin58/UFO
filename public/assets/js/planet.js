@@ -220,7 +220,8 @@ $(document).on('click', 'img.downvote', handleDownvote);
 // ====================================================================================
 
         function onMouseDown(event) {
-      
+            // $('#subtitle').hide();
+            $('#subtitle').empty();
         raycaster = new THREE.Raycaster();
         mouse = new THREE.Vector2();
             mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
