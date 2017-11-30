@@ -207,11 +207,15 @@
 // ====================================================================================
 
 // Increase value of 'upcount button' on click
-$(document).on('click', 'button.upvote', handleUpvote);
+// $(document).on('click', 'button.upvote', handleUpvote);
 $(document).on('click', 'img.upvote', handleUpvote);
+// $(document).on('click', 'object#alien_nofill.upvote', function() {
+//     console.log('svg clicked');
+//     handleUpvote();
+// } );
 
 // Increase value of 'downcount button' on click
-$(document).on('click', 'button.downvote', handleDownvote);
+// $(document).on('click', 'button.downvote', handleDownvote);
 $(document).on('click', 'img.downvote', handleDownvote);
 // ====================================================================================
 
@@ -329,11 +333,12 @@ $(document).on('click', 'img.downvote', handleDownvote);
                 // ====================================================================================
                 // Add alien! (vote up) button
                 // var upvoteBtn = $('<button>').addClass('upvote');
-                var upvoteBtn = $("<img src='assets/img/alien_white.svg'>").addClass('upvote');
+                var upvoteBtn = $("<img src='assets/img/alien.svg'>").addClass('upvote');
 
-                // var upvoteBtn = $("<svg src='assets/img/alien_white.svg'>").addClass('upvote');
+                // var upvoteBtn = $('<object type="image/svg+xml" data="assets/img/alien_nofill.svg">').addClass('upvote');
 
                 upvoteBtn.attr('data-upcount');
+                // upvoteBtn.attr('id', 'alien_nofill');
 
                 // Add <use> to upvote button****trying to work with svg
                 // var upIcon = $('<use>').attr('xlink: href = "#alien_white"');
@@ -354,7 +359,7 @@ $(document).on('click', 'img.downvote', handleDownvote);
 
                 // Adds not alien (vote down) button
                 // var downvoteBtn = $('<button>').addClass('downvote');
-                var downvoteBtn = $("<img src='assets/img/not_alien_white.svg'>").addClass('downvote');
+                var downvoteBtn = $("<img src='assets/img/not_alien.svg'>").addClass('downvote');
                 downvoteBtn.attr('data-downcount');
 
                 // Add icon to downvote button

@@ -12,25 +12,18 @@ function handleUpvote() {
 
   // Grabs id of counter for each entry
   var $counterVal = currentPost.children('input');
-  // 
 
   // Counter value, by id, of each entry
   var currentCountVal = $counterVal[0].value;
-  console.log(currentCountVal);
+  // console.log(currentCountVal);
   // Counter id, which relates to entry id, from table
   var currentCounterId = $counterVal.attr('data-id');
-  console.log(currentCounterId);
-
-    // WHEN COUNTER IS NO LONGER ON THE PAGE... NEEDS TO GRAB FROM THE UFOs TABLE....
-    // 
-
-// var upcount = $counterVal.val();
-  // $('input').val(++upcount);
+  // console.log(currentCounterId);
 
   // Sets new count value by adding 1
   $('input').val(++currentCountVal);
   
-  console.log('New count value is: ' + currentCountVal);
+  // console.log('New count value is: ' + currentCountVal);
 
   submitVoted();
 }
@@ -53,20 +46,15 @@ function handleDownvote() {
 
   // Counter value, by id, of each entry
   var currentCountVal = $counterVal[0].value;
-  console.log(currentCountVal);
+  // console.log(currentCountVal);
+
   // Counter id, which relates to entry id, from table
   var currentCounterId = $counterVal.attr('id');
-  console.log(currentCounterId);
-
-  // var downcount = $counterVal.val();
-  // var downcount = currentCountVal;
-  // console.log(downcount);
-
-  // $('input').val(--downcount);
+  // console.log(currentCounterId);
 
   // Sets new count value by subtracting 1
   $('input').val(--currentCountVal);
-  console.log('New count value is: ' + currentCountVal);
+  // console.log('New count value is: ' + currentCountVal);
 
   submitVoted();
 }
@@ -122,10 +110,10 @@ function submitVoted(voteData) {
     url: "/api/planet",
     data: voteData
   }).done(function() {
-    console.log(voteData);
-    console.log('Sighting vote logged to db!');
+    // console.log(voteData);
+    // console.log('Sighting vote logged to db!');
 
-    // Renders 'toast' popup
+    // Renders 'toast' popup to tell users the vote was logged
     snackbar(); 
 
     // Empty ufo-area div for next entry
@@ -140,13 +128,10 @@ function submitVoted(voteData) {
 }
 
 
-
-
-
 // ====================================================================================
 // Special effects!
 
-// Typewriter effect for snackbar  **Took off b/c only worked on first call. Requires page reload each time to work**
+// Typewriter effect for snackbar  **Requires page reload each time to work after 1st**
 var i = 0;
 var txt = 'Entry vote logged...'; /* The text */
 var speed = 60; /* The speed/duration of the effect in milliseconds */
@@ -159,7 +144,7 @@ function typeWriter() {
   }
 }
 
-// Have a toast popup and say "sighting logged" then empty div
+// Have a toast popup and say "sighting logged" then hide
 function snackbar() {
   // Get the snackbar DIV
   var x = document.getElementById("snackbar")
