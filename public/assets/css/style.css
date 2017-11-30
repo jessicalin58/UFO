@@ -1,5 +1,7 @@
-  body #container img.upvote,
-body #container img.downvote {
+body #container img.upvote,
+body #container img.downvote,
+body #container svg.upvote,
+body #container svg.downvote {
    height: 80px;
    width: 80px;
 }
@@ -1346,10 +1348,37 @@ keyframes
   animation: noise-anim-2 3s infinite linear alternate-reverse;
 }
 
-/* Style for vote buttons and counter input */
-button.downvote, button.upvote, img.upvote, img.downvote {
+  /* Style for vote buttons and counter input */
+
+button.downvote,
+button.upvote,
+img.upvote,
+img.downvote,
+svg.upvote,
+svg.downvote {
   margin: 5px;
 }
+
+/* a img.upvote:hover,
+img.upvote:hover {
+  src: url(../img/alien.svg);
+  height: 80px;
+  width: 80px;
+}
+
+img.downvote:hover {
+  background-image: url(../img/not_alien.svg);
+  height: 80px;
+  width: 80px;
+}
+
+svg.upvote {
+  fill: #fff
+}
+
+svg.upvote:hover {
+  fill: #76ff03;
+} */
 
 input.counter {
   /* width: 30px;
@@ -1357,7 +1386,7 @@ input.counter {
   display: none;
 }
 
-/* button#vote {
+  /* button#vote {
   text-decoration: underline overline #76ff03;
   font-family: Courier New, Courier, monospace;
 } */

@@ -146,7 +146,7 @@ function submitVoted(voteData) {
 // ====================================================================================
 // Special effects!
 
-// Typewriter effect for snackbar
+// Typewriter effect for snackbar  **Took off b/c only worked on first call. Requires page reload each time to work**
 var i = 0;
 var txt = 'Entry vote logged...'; /* The text */
 var speed = 60; /* The speed/duration of the effect in milliseconds */
@@ -169,17 +169,19 @@ function snackbar() {
   typeWriter();
 
   // After 3 seconds, remove the show class from DIV
-  setTimeout(function () { x.className = x.className.replace("show", ""); }, 2000);
+  setTimeout(function () {
+     x.className = x.className.replace("show", ""); 
+    }, 2000);
 }
 
 
 // ====================================================================================
 // PROCESS
-$(function () {
+// $(function () {
 
-  $(this).on('click', 'button#vote', submitVoted)
-  // ^^Need way to only allow submission once...
+//   $(this).on('click', 'button#vote', submitVoted)
+//   // ^^Need way to only allow submission once...
 
-  // ^^^Instead switch this to fire with upvote/downvote buttons
+//   // ^^^Instead switch this to fire with upvote/downvote buttons
   
-})
+// })
