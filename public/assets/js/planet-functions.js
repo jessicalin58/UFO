@@ -72,51 +72,33 @@ window.onclick = function (event) {
     };
 
 
-     //audio functionalities 
-
-        // $(document).ready(function () {
-       
-        //     var pathname = window.location.pathname; // Returns path only
-        //     var url = window.location.href;     // Returns full URL
-
-        //     if (window.location.href = "http://localhost:8080/planet") {
-        //         function playAud() {
-        //             aud.play();
-        //         }
-        //     }
-        //     else {
-        //         function pauseAud() {
-        //             aud.pause();
-
-        //         }
-        //     }
-        // });
 
 
 
-jQuery(document).ready(function () {
-    if ($('.cd-stretchy-nav').length > 0) {
-        var stretchyNavs = $('.cd-stretchy-nav');
+// $(document).ready(function () {
+//     if ($('.cd-stretchy-nav').length > 0) {
+//         var stretchyNavs = $('.cd-stretchy-nav');
 
-        stretchyNavs.each(function () {
-            var stretchyNav = $(this),
-                stretchyNavTrigger = stretchyNav.find('.cd-nav-trigger');
+//         stretchyNavs.each(function () {
+//             var stretchyNav = $(this),
+//                 stretchyNavTrigger = stretchyNav.find('.cd-nav-trigger');
 
-            stretchyNavTrigger.on('click', function (event) {
-                event.preventDefault();
-                stretchyNav.toggleClass('nav-is-visible');
-            });
-        });
+//             stretchyNavTrigger.on('click', function (event) {
+//                 console.log("clicked");
+//                 event.preventDefault();
+//                 stretchyNav.toggleClass('nav-is-visible');
+//             });
+//         });
 
-        $(document).on('click', function (event) {
-            (!$(event.target).is('.cd-nav-trigger') && !$(event.target).is('.cd-nav-trigger span')) && stretchyNavs.removeClass('nav-is-visible');
-            
-        });
+//         $(document).on('click', function (event) {
+//             (!$(event.target).is('.cd-nav-trigger') && !$(event.target).is('.cd-nav-trigger span')) && stretchyNavs.removeClass('nav-is-visible');
+//             console.log("clicked");
+//         });
 
 
-        // $("#container").draggable();
-    }
-});
+//         // $("#container").draggable();
+//     }
+// });
 
 $(function () {
     var state = true;
