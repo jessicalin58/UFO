@@ -16,6 +16,8 @@
         var earthPivot3;
         var mesh;
         var planetViewed = 0;
+        var ship;
+        var jsonloader;
         init();
         animate();
         $(window).on('load', function () {
@@ -60,6 +62,7 @@
         function init() {
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
         camera.position.z = 80;
+    
 
             controls = new THREE.OrbitControls(camera);
             controls.maxDistance = 300;
@@ -79,15 +82,19 @@
         sphereTab[i].position.set(Math.random() * 600 - 300, Math.random() * 600 - 300, Math.random() * 600 - 300);
         scene.add(sphereTab[i]);
             }
+            scene.fog = new THREE.Fog(0xffffff, 0.015, 300);
             //////Sun////////
+
+
+
             var pinkMat = new THREE.MeshPhongMaterial({
                 color: 0x50f442,
                 emissive: 0x50f442,
                 specular: 0xFFED22,
                 shininess: 10,
-                shading: THREE.FlatShading,
-                transparent: 1,
-                opacity: 1
+                // shading: THREE.FlatShading,
+                transparent: true,
+                opacity: 0.4
             });
             var pinkMat2 = new THREE.LineBasicMaterial({
                 color: 0xffffff, linewidth: 2
@@ -114,8 +121,29 @@
                 shading: THREE.FlatShading
             });
 
-            sun = new THREE.Mesh(new THREE.BoxGeometry(15, 15,15), pinkMat);
+            var jsonloader = new THREE.JSONLoader();
+            jsonloader.load("assets/models/ship.json", function (geometry, materials) {
+                for (var i = 0; i < materials.length; i++) {
+                    var m = materials[i]; m.morphTargets = true; console.log(m);
+                }
+                ship = new THREE.Mesh(geometry, new THREE.MultiMaterial(materials)); 
+                ship.scale.set(0.8, 0.8, 0.8);
+                ship.rotation.x = Math.PI / 6;
+                ship.rotation.z = Math.PI / 180;
+
+
+                // ship.rotation.y = Math.PI / 4;
+                    // mesh.scale.set( 10, 10, 10 );
+                // ship.position.y = 150;
+
+                scene.add(ship);
+
+            });
+            
+            sun = new THREE.Mesh(new THREE.ConeGeometry(20, 40,32), pinkMat);
             scene.add(sun);
+            sun.rotation.x = Math.PI / 6;
+
             objects.push(sun);
             sun2 = new THREE.Mesh(new THREE.EdgesGeometry(geometry), pinkMat2);
             sun2.rotation.x = 1;
@@ -165,10 +193,10 @@
             objects.push(earth3);
 
             // lights
-            light = new THREE.DirectionalLight(0x4f4f4f);
+            light = new THREE.DirectionalLight(0xffffff);
             light.position.set(4, 4, 4);
             scene.add(light);
-            light = new THREE.DirectionalLight(0x4f4f4f);
+            light = new THREE.DirectionalLight(0xffffff);
             light.position.set(-4, -4, -4);
             scene.add(light);
             //render
@@ -207,6 +235,7 @@
 // ====================================================================================
 
 // Increase value of 'upcount button' on click
+
 // $(document).on('click', 'button.upvote', handleUpvote);
 $(document).on('click', 'img.upvote', handleUpvote);
 // $(document).on('click', 'object#alien_nofill.upvote', function() {
@@ -216,6 +245,7 @@ $(document).on('click', 'img.upvote', handleUpvote);
 
 // Increase value of 'downcount button' on click
 // $(document).on('click', 'button.downvote', handleDownvote);
+
 $(document).on('click', 'img.downvote', handleDownvote);
 // ====================================================================================
 
@@ -230,9 +260,9 @@ $(document).on('click', 'img.downvote', handleDownvote);
             var intersects = raycaster.intersectObjects(objects);
             currentcolor = intersects[0].object.material.color.getHex();
             if (intersects.length > 0) {
-        console.log(currentcolor);
-    switch (intersects[0].object.geometry.type) {
-                    case 'BoxGeometry':
+             console.log(currentcolor);
+            switch (intersects[0].object.geometry.type) {
+                    case 'ConeGeometry':
             if (currentcolor == 0x50f442) {
                             if (planetViewed == 0) {
                                  hideWelcome();
@@ -253,6 +283,7 @@ $(document).on('click', 'img.downvote', handleDownvote);
                                     ease: Quad.easeInOut,
                                 });
                                 info.innerHTML = "<h3>Testimonials</h3>";
+
                                 // info.innerHTML = " <span>Old Man Larry,</span>";
 
                                 // description.innerHTML = "<p>It was a bright light, hitting my car and everything in between ...</p>";
@@ -325,6 +356,7 @@ $(document).on('click', 'img.downvote', handleDownvote);
                                 
 
                                 // $("ufo-data").addClass("ufo-area");
+
                             }
                             else {
 
@@ -345,6 +377,7 @@ $(document).on('click', 'img.downvote', handleDownvote);
                                     delay: 1,
                                     ease: Quad.easeInOut,
                                 });
+
 
                                 // info.innerHTML = " <span>Old Man Larry,</span>";
 
@@ -424,125 +457,9 @@ $(document).on('click', 'img.downvote', handleDownvote);
     });  //Closes $.get route
 
                             }
-                            // if (planetViewed == 2 || planetViewed == 3 || planetViewed == 4) {
-                            // planetViewed = 1;
-                            //   TweenMax.from($('#content'), 0.5, {
-                            //   css: {
-                            //     left: '-500px'
-                            //         },
-                            //         ease: Quad.easeInOut
-                            //     });
-                            //     TweenMax.to($('#border'), 0.2, {
-                            //     css: {
-                            //      height: '200px'
-                            //         }, delay: 1,
-                            //         ease: Quad.easeInOut,
-                            //     });
-                            //     TweenMax.from($('#border'), 0.5, {
-                            //      css: {
-                            //         height: '0px'
-                            //         },
-                            //         delay: 0.5,
-                            //         ease: Quad.easeInOut,
-                            //     });
-
-                            //     info.innerHTML = " <span>Danny</span>";
-
-                            //     description.innerHTML = "<p>Quicker than a bolt!!</p>";
-                            // }
+                       
                         }
-                        if (currentcolor == 0x26D7E7) {
-                            if (planetViewed == 1 || planetViewed == 3 || planetViewed == 4) {
-                            planetViewed = 2;
-                            info.innerHTML = "<p>Lisa Simpsons</p>";
-
-                                // document.getElementById('couleur').style.color = "#26d7e7";
-
-                                description.innerHTML = "<p> I mean it was right in my face, but also not...";
-
-                                TweenMax.from($('#content'), 0.5, {
-                             css: {
-                             left: '-500px'
-                                    },
-                                    ease: Quad.easeInOut
-                                });
-                                TweenMax.to($('#border'), 0.2, {
-                             css: {
-                              height: '200px'
-                                    }, delay: 1,
-                                    ease: Quad.easeInOut,
-                                });
-
-                                TweenMax.from($('#border'), 0.5, {
-                                 css: {
-                                  height: '0px'
-                                    },
-                                    delay: 0.5,
-                                    ease: Quad.easeInOut,
-                                });
-                            }
-                        }
-                        if (currentcolor == 0xffc12d) {
-                            if (planetViewed == 1 || planetViewed == 2 || planetViewed == 4) {
-                            planetViewed = 3;
-                             info.innerHTML = '<p>Yoda</p>';
-
-
-                                description.innerHTML = "<p>Bright in the sun it was. Hah!</p>";
-                                // document.getElementById('couleur').style.color = "#ffc12d";
-
-                                TweenMax.from($('#content'), 0.5, {
-                        css: {
-                        left: '-500px'
-                                    },
-                                    ease: Quad.easeInOut
-                                });
-
-                                TweenMax.to($('#border'), 0.2, {
-                        css: {
-                        height: '200px'
-                                    }, delay: 1,
-                                    ease: Quad.easeInOut,
-                                });
-                                TweenMax.from($('#border'), 0.5, {
-                        css: {
-                        height: '0px'
-                                    },
-                                    delay: 0.5,
-                                    ease: Quad.easeInOut,
-                                });
-                            }
-                        }
-                        if (currentcolor == 0xacacac) {
-                            if (planetViewed == 1 || planetViewed == 2 || planetViewed == 3) {
-                        planetViewed = 4;
-                    info.innerHTML = '<p>Duck</p>';
-                                // document.getElementById('couleur').style.color = "#acacac";
-
-                                description.innerHTML = "<p>quack quack...QUACK QUAKC QUACKA927EHD</p>";
-
-                                TweenMax.from($('#content'), 0.5, {
-                            css: {
-                            left: '-500px'
-                                    },
-                                    ease: Quad.easeInOut
-                                });
-
-                                TweenMax.to($('#border'), 0.1, {
-                            css: {
-                            height: '200px'
-                                    }, delay: 1,
-                                    ease: Quad.easeInOut,
-                                });
-                                TweenMax.from($('#border'), 0.5, {
-                            css: {
-                            height: '0px'
-                                    },
-                                    delay: 0.5,
-                                    ease: Quad.easeInOut,
-                                });
-                            }
-                        }
+          
                         break;
                 }
             }
@@ -563,7 +480,7 @@ $(document).on('click', 'img.downvote', handleDownvote);
                 // console.log(currentcolor);
 
                 switch (intersects[0].object.geometry.type) {
-                    case 'BoxGeometry':
+                    case 'ConeGeometry':
                         $('html,body').css('cursor', 'pointer');
                     // $('html,body').css('cursor', 'url(../img/alien-02.cur)');
                 }
@@ -576,14 +493,14 @@ $(document).on('click', 'img.downvote', handleDownvote);
 
         function animate() {
             ;
-                        var timer = 0.00001 * Date.now();
+            var timer = 0.00001 * Date.now();
             for (var i = 0, il = sphereTab.length; i < il; i++) {
                 var sfere = sphereTab[i];
                 sfere.position.x = 400 * Math.sin(timer + i);
                 // sfere.position.z= 500 * Math.sin( timer + i * 1.1 );
                 sfere.position.z = 400 * Math.sin(timer + i * 1.1);
             }
-            sun.rotation.x += 0.008;
+            sun.rotation.y += 0.008;
             sun2.rotation.y += 0.008;
             sun3.rotation.z += 0.008;
             earthPivot.rotation.z += 0.006;
