@@ -19,6 +19,7 @@
   "dependencies": {
     "async": "^2.6.0",
     "barba-transitions": "^1.1.0",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mysql2": "^1.5.1",
     "nprogress": "^0.2.0",
