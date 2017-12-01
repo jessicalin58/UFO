@@ -4,6 +4,7 @@ body #container svg.upvote,
 body #container svg.downvote {
    height: 80px;
    width: 80px;
+   cursor: pointer;
 }
 
 .social {

@@ -1,6 +1,11 @@
+#subtitle {
+  position: relative;
+  bottom: 70px;
+}
+
 #vote-log p {
   position: relative;
-  bottom: 400px;
+  bottom: 500px;
   color : #4d9e53;
 }
 
