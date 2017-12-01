@@ -27,6 +27,8 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/api-routes.js")(app);
+// Here we introduce HTML routing to serve different HTML files
+require("./routes/html-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>UFO Catcher</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,300,400,500,600,700,800');
+        @import url('https://fonts.googleapis.com/css?family=Nunito');
+        @import url('https://fonts.googleapis.com/css?family=Alegreya');
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/snackbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .fa {
+            padding: 2px;
+            font-size: 30px;
+            width: 20px;
+            text-align: center;
+            text-decoration: none;
+            margin: 3px;
+        }
+    
+        .fa:hover {
+            opacity: 0.7;
+        }
+    
+        .fa-facebook {
+            background: transparent;
+            color: white;
+        }
+    
+        .fa-twitter {
+            background: transparent;
+            color: white;
+        }
+
+          .fa-github {
+            background: transparent;
+            color: white;
+        }
+    
+       
+    </style>
+
+</head>
+
+<body>
+
+   
+    <!-- <div id="barba-wrapper"> -->
+
+    <header>
+        <nav id="logo" class="glitch" data-text="U30 CATCHER">U30 CATCHER</nav>        
+	<nav class="cd-stretchy-nav">
+		<a class="cd-nav-trigger" href="#0">
+			Menu
+			<span aria-hidden="true"></span>
+		</a>
+
+		<ul>
+			<li><a href="localhost:8080/planet" class="active"><span>Home</span></a></li>
+			<li><a href="#0"><span id="myBtn">About</span></a></li>
+			<li><a href="#0"><span>Services</span></a></li>
+			<li><a href="#0"><span>Store</span></a></li>
+			<li><a href="#0"><span>Contact</span></a></li>
+		</ul>
+
+		<span aria-hidden="true" class="stretchy-nav-bg"></span>
+	</nav>
+</header>
+
+
+
+    <div id="container">
+
+        <div id="welcome">
+
+            <div class="header">
+                <h3 id="aliens">Aliens or
+                    <strong>not?</strong>
+                </h3>
+            </div>
+            
+
+           <p> UF3 Catcher uses data provided by National UFO Reporting Center (NUFORC) 
+               available
+                        <a href="https://www.kaggle.com/NUFORC/ufo-sightings/data">here</a>
+                        to display real UFO sightings dated back in 1949 all over the world.
+                        
+                         If you have any questions,
+                        <a href="#">click here</a> </p>
+
+            <p id="firstSentence">C:/Documents/Initialization
+                <span id="universe"></span>
+            </p>
+            <p id="lastSentence">Click on the
+                <span id="sun">beam of light</span> to get started</p>
+        </div>
+        <div id="content">
+            <h2 id="contentTitle"></h2>
+            <p id="subtitle"></p>
+            <p id="description"></p>
+           
+        <div class="description">
+            <div id="ufo-area"></div>
+        </div>
+    </div>
+
+    <!-- <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div> -->
+
+
+   </div>
+
+    <div class="testimonial">
+    <div class="snack-glitch" id="snackbar" data-text="Entry vote logged..."></div>
+        <div id="credits"></div>
+       
+
+        <button onclick="togglePlay()" type="button" id="off">SOUND</button>
+        <div class="social">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-github"></a>
+        </div>
+        <!-- <div class="barba-container">
+             <a class="nav next" href="http://localhost:8080/chart" style="background-image: url(&quot;assets/img/cow.jpg&quot;); clip-path: circle(40px at 3% 50%);"></a>
+            <a class="nav next" href="http://localhost:8080/chart" style="background-image: url(&quot;assets/img/cow.jpg&quot;); clip-path: circle(40px at 3% 50%);"></a>
+        </div> -->
+    </div>
+
+            <!-- Audio unactivated for now -->
+                        <!-- <audio autoplay loop id="myAudio">
+                                        <source src="/assets/music/Alien.m4a">
+                                    </audio> -->
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+            
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>What is UF3-CATHCER?</p>
+                    <hr>
+                        <div class="flexbox-container">
+                        <div class="about-modal-content">
+                            <p>Are you ready to catch UFOs?
+                            <br> We're using data provided by National UFO Reporting Center (NUFORC) available <a href ="https://www.kaggle.com/NUFORC/ufo-sightings/data">here</a>
+                            to display real UFO sightings dated back in 1949 all over the world. 
+                            <br> If you have any questions, <a href="#">click here</a> </p>
+                        </div>
+                        <div class="about-modal-content-right">
+                        <p><br>This website was build with <i>threejs, sequelize and chartjs.</i>
+                        <br> No cows were harmed/abducted in the process.
+                        <br> Special thanks to
+                        __credits, NPM, Codepen, StackOverflow and friends and teachers from UCF Bootcamp.</p>
+                        </div>
+                        </div>
+                </div>
+                </div>
+
+                <!-- End of barba -->
+                <!-- </div> -->
+
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js'></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/OrbitControls.js'></script>
+    <!-- Link to Moment.js -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="assets/js/vote.js"></script>
+    <script type="text/javascript" src="assets/js/ufo.js"></script>
+    <script type="text/javascript" src="assets/js/planet.js"></script>
+    <script type="text/javascript" src="assets/js/planet-functions.js"></script>
+
+    <script src="assets/js/modernizr.js"></script> <!-- Modernizr -->
+
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    
+    <script type="text/javascript" src="assets/js/chart.js"></script> -->
+<!-- 
+
+    <script src="assets/js/barba.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/js/nextprev.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.1/TweenMax.min.js"></script> -->
+
+    <script src='https://unpkg.com/nprogress@0.2.0/nprogress.js'></script>
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css">
+
+  
+
+<script>
+    
+
+    // Show the progress bar 
+    NProgress.start();
+      NProgress.done();
+
+    // // Increase randomly
+    // var interval = setInterval(function () { NProgress.inc(); }, 1000);
+
+    // // Trigger finish when page fully loaded
+    // jQuery(window).load(function () {
+    //     clearInterval(interval);
+    //     NProgress.done();
+    // });
+
+    // // Trigger bar when exiting the page
+    // jQuery(window).unload(function () {
+    //     NProgress.start();
+    // });
+
+</script>
+
+
+
+</body>
+
+</html>

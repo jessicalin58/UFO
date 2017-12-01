@@ -17,8 +17,16 @@
   },
   "homepage": "https://github.com/jessicalin58/UFO#readme",
   "dependencies": {
-    "mysql": "^2.15.0",
-    "mysql2": "^1.5.0",
-    "sequelize": "^4.22.7"
+    "async": "^2.6.0",
+    "barba-transitions": "^1.1.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mysql2": "^1.5.1",
+    "nprogress": "^0.2.0",
+    "sequelize": "^4.23.2",
+    "upvote": "^1.1.1"
+  },
+  "devDependencies": {
+    "barba.js": "^1.0.0"
   }
 }

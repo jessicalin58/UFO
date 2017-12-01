@@ -3,7 +3,7 @@
     "username": "root",
     "password": null,
     "database": "UFO",
-    "host": "localhost",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "o8pa5668f4d6ut0c",
+    "password": "lw0ffopq3gspi3mn",
+    "database": "lz5j47le5toc7rax",
+    "host": "y0nkiij6humroewt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Form</title> 
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+		<!-- Materialize Glyphs Stylesheet -->
+		<link  rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<!-- Materialize Compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+		<!-- Upvote required css -->
+		<!-- <link rel="stylesheet" type="text/css" href="../node_modules/upvote/lib/jquery.upvote.css"> -->
+		<!-- My CSS Stylesheet -->
+		<!-- <link rel="stylesheet" type="text/css" href="assets/css/burger_style.css"> -->
+		<style>
+			body {
+				font-family: 'Share Tech Mono', monospace;
+			}
+			.container {
+				padding-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="container">
+
+			<div class="row">
+        
+        <div class="col s12 m6 center-align">
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <h6>Share your story...</h6>
+                <div class="input-field col s12">
+                  <textarea id="new-sighting" class="materialize-textarea"></textarea>
+                  <label for="new-sighting"></label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12">
+                  <button class="btn waves-effect waves-light green lighten-2" type="submit" id="add-sighting" name="add-sighting">Add sighting
+                    <i class="material-icons right">create</i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+				
+				<div class="col s12 m6 center-align" id="sightings">
+					<h3>Posted comments with voting here</h3>
+				</div>
+
+			</div> <!-- Closes row div -->
+
+		</div> <!-- Closes overall container div -->
+
+
+		<!-- ==================== SCRIPT TAGS ==================== -->
+
+		<!-- Link to jquery -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Upvote package requirement -->
+		<!-- <script type="text/javascript" src="../node_modules/upvote/lib/jquery.upvote.js"></script> -->
+		<!-- Materialize Compiled and minified JavaScript -->
+		<!-- Link to Moment.js -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<!-- My JavaScript -->
+		<script type="text/javascript" src="assets/js/search.js"></script>
+	</body>
+</html>
