@@ -6,7 +6,8 @@ $(function () {
 
     $(this).keypress(function (event) {
         if (event.which == 121) {
-            window.location.href = "http://localhost:8080/planet";
+            // window.location.href = "http://localhost:8080/planet";
+            window.location.href = "https://fast-eyrie-14169.herokuapp.com/planet";
             console.log("Y")
         }
         else {
