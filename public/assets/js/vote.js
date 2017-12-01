@@ -132,7 +132,7 @@ function submitVoted(voteData) {
       message.attr('data-text', 'Click the beam of light to rate another');
 
       $('#subtitle').append(message);
-
+      $('#vote-log').show();
     }, 2000);
   });
 }
