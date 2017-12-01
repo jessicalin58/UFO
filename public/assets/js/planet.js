@@ -306,7 +306,7 @@ $(document).on('click', 'img.downvote', handleDownvote);
                                             // ====================================================================================
                                             // Add alien! (vote up) button
                                             // var upvoteBtn = $('<button>').addClass('upvote');
-                                            var upvoteBtn = $("<img src='assets/img/alien.svg'>").addClass('upvote');
+                                            var upvoteBtn = $("<img alt='vote alien' title='vote alien' src='assets/img/alien.svg'>").addClass('upvote');
 
                                             upvoteBtn.attr('data-upcount');
                                             // upvoteBtn.attr('id', 'alien_nofill');
@@ -325,7 +325,7 @@ $(document).on('click', 'img.downvote', handleDownvote);
 
                                             // Adds not alien (vote down) button
                                             // var downvoteBtn = $('<button>').addClass('downvote');
-                                            var downvoteBtn = $("<img src='assets/img/not_alien.svg'>").addClass('downvote');
+                                            var downvoteBtn = $("<img alt='vote not alien' title='vote not alien' src='assets/img/not_alien.svg'>").addClass('downvote');
                                             downvoteBtn.attr('data-downcount');
 
                                             // Add icon to downvote button
@@ -404,7 +404,7 @@ $(document).on('click', 'img.downvote', handleDownvote);
                 // ====================================================================================
                 // Add alien! (vote up) button
                 // var upvoteBtn = $('<button>').addClass('upvote');
-                var upvoteBtn = $("<img src='assets/img/alien.svg'>").addClass('upvote');
+                var upvoteBtn = $("<img alt='vote alien' title='vote alien' src='assets/img/alien.svg'>").addClass('upvote');
 
                 // var upvoteBtn2 = $("<img src='assets/img/alien.svg'>").addClass('upvote');
                 // var upvoteBtn3 = $("<img src='assets/img/alien.svg'>").addClass('upvote');
@@ -432,7 +432,7 @@ $(document).on('click', 'img.downvote', handleDownvote);
 
                 // Adds not alien (vote down) button
                 // var downvoteBtn = $('<button>').addClass('downvote');
-                var downvoteBtn = $("<img src='assets/img/not_alien.svg'>").addClass('downvote');
+                var downvoteBtn = $("<img alt='vote not alien' title='vote not alien' src='assets/img/not_alien.svg'>").addClass('downvote');
                 downvoteBtn.attr('data-downcount');
 
                 // Add downvote button to each entry

@@ -128,8 +128,8 @@ function submitVoted(voteData) {
       $('#subtitle').show();
       // $('#subtitle').html('<p>C:\ Click cube to rate more reports</p>').addClass('gd-glitch');
 
-      var message = $('<p>Click cube to rate more reports</p>').addClass('gd-glitch');
-      message.attr('data-text', 'Click cube to rate more reports');
+      var message = $('<p>Click the beam of light to rate another</p>').addClass('gd-glitch');
+      message.attr('data-text', 'Click the beam of light to rate another');
 
       $('#subtitle').append(message);
 
