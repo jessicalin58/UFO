@@ -1,11 +1,18 @@
+// Array to store user upvoted entries
+let sightingArray = ['ALIENS CONFIRMED'];
 // ====================================================================================
 // Functions for voting buttons
-
 // Determines which entry is being upvoted; increases rating +1
 function handleUpvote() {
 
   // Selects current entry
   var currentPost = $(this).parent()
+  // console.log(currentPost);
+
+    // Saves entry text when user upvotes (or "confirms alien")
+    currentComments = currentPost[0].textContent;
+    // console.log(currentComments);
+    sightingArray.push(currentComments);
 
   // Selects id of current entry
   var currentId = currentPost[0].id;
@@ -16,14 +23,13 @@ function handleUpvote() {
   // Counter value, by id, of each entry
   var currentCountVal = $counterVal[0].value;
   // console.log(currentCountVal);
+
   // Counter id, which relates to entry id, from table
   var currentCounterId = $counterVal.attr('data-id');
   // console.log(currentCounterId);
 
   // Sets new count value by adding 1
   $('input').val(++currentCountVal);
-  
-  // console.log('New count value is: ' + currentCountVal);
 
   submitVoted();
 }
@@ -54,50 +60,27 @@ function handleDownvote() {
 
   // Sets new count value by subtracting 1
   $('input').val(--currentCountVal);
-  // console.log('New count value is: ' + currentCountVal);
 
   submitVoted();
 }
 
 
 // ====================================================================================
-// Saving/Updating voted entries to new table
+// Renders confirmed alien entries to page
+function voteLog() {
+  $('#vote-log').empty();
 
-// FUNCTIONS
-// function submitVoted() {
-//   event.preventDefault();
-//   // console.log('vote button clicked *woohoo*');
-  
-//   var votedSighting = {
-//     // datetime: req.body.datetime,
-//     comments: $('.comments').html(),
-//     // city: req.body.city,
-//     vote: $('input').val(),
-//     mainId: $('input').attr('data-id')
-//     // Does this instead just need to grab the vote value and log an association-key from the original db, then join the 2 tables for the chart??
-//   }
+  // console.log(sightingArray);
 
-//   console.log(votedSighting);
+  for (var i = 0; i < sightingArray.length; i++) {
+    // console.log(sightingArray[i]);
 
-//   $.post("/api/voted/", votedSighting, function () {
+    var p = $('<p>').text(sightingArray[i]);
+    $('#vote-log').append(p);
+  };
+}
 
-//     console.log('Sighting vote logged to db!');
-
-//     // Renders 'toast' popup
-//     snackbar(); 
-
-//     // Empty ufo-area div for next entry
-//     setTimeout(() => {
-//       var childDestroy = $('#ufo-area');
-//         while (childDestroy.firstChild) {
-//           childDestroy.removeChild(childDestroy.firstChild);
-//         }
-//       $('#ufo-area').empty();
-//     }, 2000);
-    
-//   });
-// }
-
+// Updating vote-value of entries in UFOs table
 function submitVoted(voteData) {
   // Captures vote and id of entry
   var voteData = {
@@ -132,6 +115,10 @@ function submitVoted(voteData) {
       message.attr('data-text', 'Click the beam of light to rate another');
 
       $('#subtitle').append(message);
+
+      // Show div containing entries user votes on
+      $('#vote-log').show();
+      voteLog();
 
     }, 2000);
   });
@@ -168,15 +155,3 @@ function snackbar() {
      x.className = x.className.replace("show", ""); 
     }, 2000);
 }
-
-
-// ====================================================================================
-// PROCESS
-// $(function () {
-
-//   $(this).on('click', 'button#vote', submitVoted)
-//   // ^^Need way to only allow submission once...
-
-//   // ^^^Instead switch this to fire with upvote/downvote buttons
-  
-// })

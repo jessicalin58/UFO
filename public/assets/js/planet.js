@@ -215,6 +215,7 @@
             subtitle = document.getElementById('subtitle');
             description = document.getElementById('description')
             var univers = document.getElementById('univers');
+            $('#vote-log').hide();
         }
 
         function onWindowResize() {
@@ -250,7 +251,7 @@ $(document).on('click', 'img.downvote', handleDownvote);
 // ====================================================================================
 
         function onMouseDown(event) {
-            // $('#subtitle').hide();
+            $('#vote-log').hide();
             $('#subtitle').empty();
         raycaster = new THREE.Raycaster();
         mouse = new THREE.Vector2();
