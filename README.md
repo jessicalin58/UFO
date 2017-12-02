@@ -86,21 +86,44 @@ National UFO Reporting Center "UFO Sightings" Database
 #### Abandoned elements
   * Upvote (jQuery plugin)
   * NProgress (javascript progress bar)
-  * Barba.js
+  * Transitions with Barba.js
   * User-submitted data
   * Animated screen loader
   * SVG button effects
+
+  ###### Transitions with Barba.js  
+  ![barbajs](screenshots/barbajs.gif)
+  ***
+
+  ###### User-submitted data
+  ![user-entries](screenshots/user_entries.png)
+  ***
 
   ###### Animated SVG "cow loader"
   ![dizzy-cow](screenshots/dizzy_cow.gif)
   ***
 
   ###### SVG with gitch effect
-  ![svg-glitch](screenshots/svg_glitch.gif)
+  ![svg-glitch](screenshots/alien_glitch.gif) ![svg-glitch](screenshots/notalien_glitch.gif)
   ***
   
-  ###### SVG in `<object>` tag, uses css `fill` property on hover
+  ###### SVG in `<object>` tag, uses CSS `fill` property on hover
   ![button-hover-test](screenshots/button_hover.gif)
+
+  <!-- ```
+  //Get element in object tag
+  var a = document.getElementById("alien_nofill");
+  //Get SVG element inside object tag
+  var svgDoc = a.contentDocument;
+  //Get SVG item by name
+  var svgItem = svgDoc.getElementById("alien_nofill_item");
+  //Target SVG to change fill color on hover
+  $(svgItem).hover(function() {
+    $(this).attr("fill", "#76ff03");
+  }, function() {
+    $(this).attr("fill", "#fff");
+  });
+  ``` -->
 
 
 
@@ -109,6 +132,9 @@ National UFO Reporting Center "UFO Sightings" Database
     * User can mark favorite entries
     * User can add own sighting data
     * User can fork comments, edit for spelling, etc.
+  * Expanded chart options
+    * More data choices
+    * User-selected data content
   * Newspaper image generator
     * Render headlines of favorite/ most popular entries
     * Shareable/printable
@@ -131,4 +157,4 @@ National UFO Reporting Center "UFO Sightings" Database
   * StackOverflow
   * Codyhouse
   * CodePen
-  * Curious aliens visiting Earth
+  * And thank you curious aliens for visiting Earth :alien: :rocket: :stars:
