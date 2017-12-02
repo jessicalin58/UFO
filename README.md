@@ -54,14 +54,12 @@ National UFO Reporting Center "UFO Sightings" Database
 
 
 ## Concept & Motivation
-  * Voting
-    <!-- * Laura -->
   * Feel (music/visuals)
     <!-- * Jess -->
   * Text (ASCII/terminal look)
     <!-- * Laura -->
-  * Discovery
-    <!-- * Jess -->
+  * Voting
+  <!-- * Laura -->
 
 
 
