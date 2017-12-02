@@ -140,3 +140,8 @@ $(function () {
 function sound() {
     document.getElementById("off").style.textDecoration = "line-through";
 }
+
+$('#logo').on('click', function (event) {
+    window.location.href = "https://localhost:8080/planet";
+    console.log("clicked")
+});

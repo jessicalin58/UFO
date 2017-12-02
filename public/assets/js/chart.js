@@ -26,6 +26,8 @@ $(document).ready(function () {
             var datetime_data = [];
             var duration_data = [];
             var state_data = [];
+            var country_data =[];
+            var shape_data = [];
 
             for (var i in data) {
                 userid.push("UserID " + data[i].id);
@@ -33,6 +35,8 @@ $(document).ready(function () {
                 datetime_data.push(data[i].datetime);
                 duration_data.push(data[i].duration);
                 state_data.push(data[i].state);
+                country_data.push(data[i].country);
+                shape_data.push(data[i].shape);
 
 
             }
@@ -54,8 +58,8 @@ $(document).ready(function () {
                         label: "Vote",
                         fill: false,
                         lineTension: 0.1,
-                        backgroundColor: "rgba(59, 89, 152, 0.75)",
-                        borderColor: "rgba(59, 89, 152, 1)",
+                        backgroundColor: "rgba(29, 202, 255, 0.75)",
+                        borderColor: "rgba(29, 202, 255, 1)",
                         pointHoverBackgroundColor: "rgba(59, 89, 152, 1)",
                         pointHoverBorderColor: "rgba(59, 89, 152, 1)",
                         data: vote_number
@@ -65,7 +69,7 @@ $(document).ready(function () {
 
 
             var datetimedata = {
-                labels: state_data,
+                labels: country_data,
                 datasets: [
                     {
                         label: "Datetime",
@@ -82,14 +86,14 @@ $(document).ready(function () {
             };
 
             var durationdata = {
-                labels: state_data,
+                labels: shape_data,
                 datasets: [
                     {
                         label: "Duration",
                         fill: false,
                         lineTension: 0.1,
-                        backgroundColor: "rgba(59, 89, 152, 0.75)",
-                        borderColor: "rgba(59, 89, 152, 1)",
+                        backgroundColor: "rgba(29, 202, 255, 0.75)",
+                        borderColor: "rgba(29, 202, 255, 1)",
                         pointHoverBackgroundColor: "rgba(59, 89, 152, 1)",
                         pointHoverBorderColor: "rgba(59, 89, 152, 1)",
                         data: duration_data
@@ -112,12 +116,37 @@ $(document).ready(function () {
                 type: 'bar',
                 data: durationdata,
                 options: {
+                    legend: {
+                        labels: {
+                            fontColor: "#7fff00"
+
+                        }
+                    },
                     scales: {
                         xAxes: [{
-                            stacked: true
+                            stacked: true,
+                            gridLines: {
+                                color: "#7fff00",
+                                display: false
+                            },
+                            scaleLabel: {
+
+                                display: true,
+                                // labelString: 'Month'
+                            }
+                            
                         }],
                         yAxes: [{
-                            stacked: true
+                            stacked: true,
+                            gridLines: {
+                                color: "#7fff00",
+                                display: false
+                            },
+                            scaleLabel: {
+
+                                display: true,
+                                // labelString: 'Month'
+                            }
                         }]
                     }
                 }
