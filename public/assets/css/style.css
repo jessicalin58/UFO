@@ -1,3 +1,44 @@
+#report-button {
+  cursor: pointer;
+  color: rgb(34, 34, 34);
+  font-family: Helvetica;
+  font-size: 10px;
+  opacity: 0.8;
+  margin-left:50px;
+  padding-left: 10px;
+  position: fixed;
+  
+  background-color: lime;
+  padding: 2px;
+  width: 80px;
+  height: 10px;
+  text-align: center;
+}
+/*
+ *  Scroolbar
+ */
+
+#style-4::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px transparent;
+  background-color: transparent;
+}
+
+#style-4::-webkit-scrollbar {
+  width: 2px;
+  background-color: transparent;
+}
+
+#style-4::-webkit-scrollbar-thumb {
+  background-color: #727272;
+  border-radius: 4px;
+  /* border: 2px solid #555555; */
+}
+
+
+.sidebar {
+  width:300px;
+  height: 300px;
+}
 body #container img.upvote,
 body #container img.downvote,
 body #container svg.upvote,
@@ -10,10 +51,11 @@ body #container svg.downvote {
 .social {
   margin-left: 85%;
   opacity: 0.5;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #off {
+  left: 45%;
   padding-left: 35px;
   position: absolute;
 }
@@ -47,9 +89,6 @@ body #container img {
   height: 60px;
   width: 60px;
 }
-
-
-
  
   #contentTitle{
    font-family: Nunito;
@@ -122,11 +161,12 @@ body #container img {
 }
 
  .chart-container {
-   width: 700px;
-   height: 700px;
-   overflow: scroll;
-   margin-left:60%;
-   margin-top:20%;
+   height: 500px;
+   position:absolute;
+   overflow-x: scroll;
+   margin-left:40%;
+   top: 120px;
+
    /* overflow: auto; */
    /* margin-top:30%;
    color:lime;
@@ -156,16 +196,15 @@ body #container img {
   opacity:0.8;
 }
 #logo{
+  cursor: pointer;
   color:white;
   font-family:Helvetica;
   font-size:12px;
   opacity:0.8;
 
-    position: fixed;
   z-index: 2;
   top: 60px;
   left: 5%;
-  pointer-events: none;
 }
 #container {
   border-color: lime;
