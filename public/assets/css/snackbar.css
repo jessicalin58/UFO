@@ -1,11 +1,19 @@
 #subtitle {
   position: relative;
-  bottom: 70px;
+  /* bottom: 20px; */
+  margin-top: -50px;
+}
+
+#vote-log {
+  position: relative;
+  bottom: 20px;
+  margin-top: 5%;
 }
 
 #vote-log p {
-  position: relative;
+  /* position: relative;
   bottom: 500px;
+  top: 100px; */
   color: #48b450;
 }
 
