@@ -21,7 +21,8 @@
 ## Deployed Application
 [Heroku] https://fast-eyrie-14169.herokuapp.com/
 
-
+## Video Instroduction
+[Vimeo] https://vimeo.com/245741367
 
 ## Inspiration
 National UFO Reporting Center "UFO Sightings" Database
@@ -41,10 +42,12 @@ National UFO Reporting Center "UFO Sightings" Database
     * Threejs & environment design
     * Chart.js & required API-routes
     * Navigation bar
+    * Github (https://github.com/jessicalin58)
   * Laura Boetcher - Co-COO, Back-end, SVG Apprentice
     * Sequelize API-routes for voting
     * Voting functionality
     * Session-based vote log
+    * Github (https://github.com/g33klaura)
 
 
 
