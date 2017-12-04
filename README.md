@@ -21,7 +21,7 @@
 ## Deployed Application
 [Heroku] https://fast-eyrie-14169.herokuapp.com/
 
-## Video Instroduction
+## Video Introduction
 [Vimeo] https://vimeo.com/245741367
 
 ## Inspiration
